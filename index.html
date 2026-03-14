@@ -2,95 +2,153 @@
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
-<title>FMK Avdelning 20 FOI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FMK20FOI</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
+/* ===== BAS ===== */
+
 body{
 margin:0;
-background:#0B2239;
 font-family:'Segoe UI',sans-serif;
+background:#0B2239;
 color:white;
-display:flex;
-justify-content:center;
 }
 
-.page{
-width:100%;
+.container{
 max-width:1200px;
+margin:auto;
+padding:0 20px;
 }
 
-.hero-section{
+/* ===== HEADER ===== */
+
+.header{
+position:sticky;
+top:0;
+z-index:1000;
+background:#07182a;
+box-shadow:0 4px 20px rgba(0,0,0,0.4);
+}
+
+.nav{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:14px 20px;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-weight:bold;
+font-size:20px;
+}
+
+.logo img{
+height:36px;
+}
+
+.menu{
+display:flex;
+gap:25px;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+font-weight:500;
+opacity:0.9;
+transition:0.3s;
+}
+
+.menu a:hover{
+color:#FFC72C;
+}
+
+/* ===== HAMBURGER ===== */
+
+.hamburger{
+display:none;
+font-size:24px;
+cursor:pointer;
+}
+
+.mobile-menu{
+display:none;
+flex-direction:column;
+background:#07182a;
+padding:20px;
+gap:15px;
+}
+
+/* ===== HERO ===== */
+
+.hero{
 padding:90px 20px;
+text-align:center;
 background:
-linear-gradient(rgba(11,34,57,0.92),rgba(11,34,57,0.97)),
+linear-gradient(rgba(11,34,57,0.9),rgba(11,34,57,0.95)),
 url("https://lh3.googleusercontent.com/d/1aXQ0njh5TUbQMG_rPeyEUuTnJwuJUVhR");
 background-size:cover;
 background-position:center;
-border-radius:12px;
 }
 
-.hero-container{
-text-align:center;
-}
-
-.hero-title{
-font-size:44px;
-font-weight:700;
+.hero h1{
+font-size:46px;
 margin-bottom:10px;
 }
 
-.hero-sub{
+.hero p{
 font-size:20px;
 opacity:0.9;
 }
 
-.cta-btn{
+.cta{
 display:inline-block;
 margin-top:30px;
-background:#ffc72c;
-color:#000;
-padding:15px 32px;
+background:#FFC72C;
+color:black;
+padding:16px 34px;
 border-radius:40px;
 font-weight:bold;
-text-decoration:none;
+cursor:pointer;
 }
 
+/* ===== KORT ===== */
+
 .cards{
-margin-top:60px;
+margin:70px auto;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:25px;
+gap:30px;
 }
 
 .card{
-display:block;
 background:rgba(255,255,255,0.08);
 backdrop-filter:blur(10px);
 padding:30px;
 border-radius:14px;
 border:1px solid rgba(255,255,255,0.15);
-text-decoration:none;
-color:white;
-transition:0.3s;
+cursor:pointer;
+transition:0.35s;
 position:relative;
 }
 
 .card:hover{
-transform:translateY(-6px);
-box-shadow:0 10px 30px rgba(0,0,0,0.5);
+transform:translateY(-8px);
+box-shadow:0 10px 30px rgba(0,0,0,0.6);
 }
 
 .card i{
-font-size:32px;
+font-size:34px;
+color:#FFC72C;
 margin-bottom:10px;
-color:#ffc72c;
-}
-
-.card h3{
-margin-bottom:8px;
 }
 
 .card::after{
@@ -102,42 +160,53 @@ font-size:20px;
 opacity:0.8;
 }
 
-.book-section{
-margin-top:70px;
-padding:35px;
+/* ===== SECTIONS ===== */
+
+.section{
+display:none;
+padding:70px 20px;
+animation:fade 0.4s;
+}
+
+.section.active{
+display:block;
+}
+
+.section-box{
+max-width:1000px;
+margin:auto;
+background:rgba(0,0,0,0.4);
+padding:40px;
 border-radius:12px;
-background:rgba(0,0,0,0.45);
-text-align:center;
 }
 
-.book-btn{
+@keyframes fade{
+from{opacity:0;transform:translateY(10px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+.back{
+margin-top:30px;
 display:inline-block;
-margin-top:18px;
-background:#ffc72c;
+background:#FFC72C;
 color:black;
-padding:14px 28px;
+padding:12px 28px;
 border-radius:30px;
+cursor:pointer;
 font-weight:bold;
-text-decoration:none;
 }
 
-/* FOOTER */
+/* ===== FOOTER ===== */
 
-.fmk-footer{
+.footer{
 margin-top:80px;
 padding:60px 20px;
-background:rgba(0,0,0,0.65);
-border-radius:12px;
+background:rgba(0,0,0,0.7);
 text-align:center;
 }
 
-.footer-logo{
+.footer img{
 height:80px;
-margin-bottom:20px;
-}
-
-.footer-title{
-font-size:20px;
 margin-bottom:20px;
 }
 
@@ -146,31 +215,37 @@ display:grid;
 grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
 gap:10px;
 max-width:700px;
-margin:0 auto 25px auto;
+margin:20px auto;
 }
 
 .footer-links a{
-color:#ffc72c;
+color:#FFC72C;
 text-decoration:none;
 font-weight:bold;
-padding:6px;
-border-radius:6px;
-}
-
-.footer-links a:hover{
-color:white;
-background:rgba(255,199,44,0.15);
-}
-
-.footer-social a{
-color:#ffc72c;
-font-size:26px;
 }
 
 .footer-copy{
+margin-top:20px;
 font-size:12px;
 opacity:0.6;
-margin-top:15px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:800px){
+
+.menu{
+display:none;
+}
+
+.hamburger{
+display:block;
+}
+
+.mobile-menu.show{
+display:flex;
+}
+
 }
 
 </style>
@@ -178,117 +253,236 @@ margin-top:15px;
 
 <body>
 
-<div class="page">
+<header class="header">
 
-<div class="hero-section">
+<div class="nav container">
 
-<div class="hero-container">
-
-<div class="hero-title">
-Försvarets Motorklubb Avdelning 20 FOI
+<div class="logo">
+<img src="https://lh3.googleusercontent.com/d/1CYuV6WLFcPUYGn_iG64HRh2gwwAiS2EL">
+FMK20FOI
 </div>
 
-<div class="hero-sub">
-Säkerhet • Kunskap • Gemenskap
+<div class="menu">
+<a onclick="home()">Start</a>
+<a onclick="show('slap')">Släp</a>
+<a onclick="show('medlem')">Medlem</a>
+<a onclick="show('verktyg')">Verktyg</a>
+<a onclick="show('aktiviteter')">Aktiviteter</a>
+<a onclick="show('kontakt')">Kontakt</a>
 </div>
 
-<a class="cta-btn"
-href="https://sites.google.com/view/fmkavd20foi/startsida/bli-medlem"
-target="_top">
+<div class="hamburger" onclick="toggleMenu()">
+<i class="fa-solid fa-bars"></i>
+</div>
+
+</div>
+
+<div class="mobile-menu" id="mobileMenu">
+<a onclick="home()">Start</a>
+<a onclick="show('slap')">Släp</a>
+<a onclick="show('medlem')">Medlem</a>
+<a onclick="show('verktyg')">Verktyg</a>
+<a onclick="show('aktiviteter')">Aktiviteter</a>
+<a onclick="show('kontakt')">Kontakt</a>
+</div>
+
+</header>
+
+<!-- HERO -->
+
+<div class="hero">
+
+<h1>Försvarets Motorklubb Avdelning 20 FOI</h1>
+
+<p>Säkerhet • Kunskap • Gemenskap</p>
+
+<div class="cta" onclick="show('medlem')">
 Bli medlem
-</a>
+</div>
 
+</div>
+
+<div class="container">
 
 <div class="cards">
 
-<a class="card"
-href="https://sites.google.com/view/fmkavd20foi/startsida/boka-sl%C3%A4pvagn"
-target="_top">
+<div class="card" onclick="show('slap')">
 <i class="fa-solid fa-truck"></i>
-<h3>Släpvagn</h3>
-<p>Boka föreningens släpvagn enkelt via kalender.</p>
-</a>
+<h3>Boka släpvagn</h3>
+<p>Boka föreningens släpvagn.</p>
+</div>
 
-<a class="card"
-href="https://sites.google.com/view/fmkavd20foi/startsida/verktyg"
-target="_top">
+<div class="card" onclick="show('verktyg')">
 <i class="fa-solid fa-screwdriver-wrench"></i>
 <h3>Verktyg</h3>
-<p>Tillgång till verktyg och utrustning.</p>
-</a>
+<p>Föreningens verktyg och utrustning.</p>
+</div>
 
-<a class="card"
-href="https://sites.google.com/view/fmkavd20foi/startsida/aktiviteter"
-target="_top">
+<div class="card" onclick="show('aktiviteter')">
 <i class="fa-solid fa-calendar-days"></i>
 <h3>Aktiviteter</h3>
-<p>Se kommande aktiviteter och träffar.</p>
-</a>
+<p>Se kommande aktiviteter.</p>
+</div>
 
-<a class="card"
-href="https://sites.google.com/view/fmkavd20foi/startsida/styrelsekontaktarkiv"
-target="_top">
-<i class="fa-solid fa-file-lines"></i>
+<div class="card" onclick="show('kontakt')">
+<i class="fa-solid fa-users"></i>
 <h3>Kontakt</h3>
-<p>Stadgar, kontaktuppgifter och arkiv.</p>
-</a>
+<p>Styrelse och kontaktuppgifter.</p>
+</div>
 
 </div>
 
+</div>
 
-<div class="book-section">
+<!-- SECTIONS -->
+
+<div id="slap" class="section">
+<div class="section-box">
 
 <h2>Boka släpvagn</h2>
 
-<p>Se tillgängliga tider och boka släpvagnen direkt.</p>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSda7JK2HIs4I7xGOXNUKokfO52s2a-hvhh_NPztxkcFw5Sykw/viewform?embedded=true"
+width="100%" height="800"></iframe>
 
-<a class="book-btn"
-href="https://sites.google.com/view/fmkavd20foi/startsida/boka-sl%C3%A4pvagn"
-target="_top">
-Öppna bokning
-</a>
-
-</div>
+<div class="back" onclick="home()">Tillbaka</div>
 
 </div>
 </div>
 
 
-<div class="fmk-footer">
+<div id="medlem" class="section">
+<div class="section-box">
 
-<img class="footer-logo"
-src="https://lh3.googleusercontent.com/d/1CYuV6WLFcPUYGn_iG64HRh2gwwAiS2EL">
+<h2>Bli medlem</h2>
 
-<div class="footer-title">
-Del av FMK-nätverket
+<iframe src="https://forms.gle/rMuXHA5SeB58ZLVs7"
+width="100%" height="800"></iframe>
+
+<div class="back" onclick="home()">Tillbaka</div>
+
 </div>
+</div>
+
+
+<div id="verktyg" class="section">
+<div class="section-box">
+
+<h2>Verktyg</h2>
+
+<p>
+Föreningen har tillgång till ett stort antal verktyg.
+</p>
+
+<ul>
+<li>Kalibrering av SU-förgasare</li>
+<li>Mätning av avgasvärden</li>
+<li>Hylsnyckelsats i tum</li>
+<li>Svets</li>
+</ul>
+
+<p>
+Arbete pågår med att inventera verktygen.
+</p>
+
+<div class="back" onclick="home()">Tillbaka</div>
+
+</div>
+</div>
+
+
+<div id="aktiviteter" class="section">
+<div class="section-box">
+
+<h2>Aktiviteter</h2>
+
+<p>
+Kommande aktiviteter publiceras här.
+</p>
+
+<div class="back" onclick="home()">Tillbaka</div>
+
+</div>
+</div>
+
+
+<div id="kontakt" class="section">
+<div class="section-box">
+
+<h2>Styrelse</h2>
+
+<p><b>Ordförande</b> Leif KG Persson</p>
+<p>leifkgpersson@hotmail.com</p>
+
+<p><b>Sekreterare</b> Filip Brolin</p>
+<p>filip.brolin@foi.se</p>
+
+<p><b>Kassör</b> Jan Carlsson</p>
+
+<h3>Postadress</h3>
+
+<p>
+FMK avd 20 FOI<br>
+Att: Filip Brolin<br>
+16440 Stockholm
+</p>
+
+<div class="back" onclick="home()">Tillbaka</div>
+
+</div>
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+<img src="https://lh3.googleusercontent.com/d/1CYuV6WLFcPUYGn_iG64HRh2gwwAiS2EL">
 
 <div class="footer-links">
 
-<a href="https://www.fmk.se/" target="_top">FMK Sverige</a>
-<a href="https://www.fmklivgardet.se/" target="_top">FMK Livgardet</a>
-<a href="https://www.fmk.se/fmv/" target="_top">FMK FMV</a>
-<a href="https://www.fmkhalland.se/" target="_top">FMK Halland</a>
-<a href="https://www.fmk.se/sodermanland/" target="_top">FMK Södermanland</a>
-<a href="https://www.fmk.se/uddevalla/" target="_top">FMK Uddevalla</a>
-
-</div>
-
-<div class="footer-social">
-
-<a href="https://www.facebook.com/groups/891175008263411" target="_top">
-<i class="fa-brands fa-facebook"></i>
-</a>
+<a href="https://www.fmk.se/">FMK Sverige</a>
+<a href="https://www.fmklivgardet.se/">FMK Livgardet</a>
+<a href="https://www.fmk.se/fmv/">FMK FMV</a>
+<a href="https://www.fmkhalland.se/">FMK Halland</a>
+<a href="https://www.fmk.se/sodermanland/">FMK Södermanland</a>
+<a href="https://www.fmk.se/uddevalla/">FMK Uddevalla</a>
 
 </div>
 
 <div class="footer-copy">
-© 2025 FMK Avdelning 20 FOI • Försvarets Motorklubb
+© 2025 FMK Avdelning 20 FOI
 </div>
 
 </div>
 
-</div>
+<script>
+
+function show(page){
+
+document.querySelectorAll(".section").forEach(s=>{
+s.classList.remove("active")
+})
+
+document.getElementById(page).classList.add("active")
+
+window.scrollTo({top:0,behavior:'smooth'})
+
+}
+
+function home(){
+
+document.querySelectorAll(".section").forEach(s=>{
+s.classList.remove("active")
+})
+
+window.scrollTo({top:0,behavior:'smooth'})
+
+}
+
+function toggleMenu(){
+document.getElementById("mobileMenu").classList.toggle("show")
+}
+
+</script>
 
 </body>
 </html>
