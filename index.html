@@ -10,8 +10,6 @@
 
 <style>
 
-
-
 /* ===== BAS ===== */
 
 body{
@@ -105,6 +103,7 @@ background-size:110%;
 background-position:center;
 animation:heroMove 40s ease-in-out infinite alternate;
 }
+
 .hero h1{
 font-size:46px;
 margin-bottom:10px;
@@ -134,10 +133,17 @@ transform:scale(1.05);
 /* ===== CARDS ===== */
 
 .cards{
-margin:50px auto;
+margin:56px auto;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:30px;
+transition:all 0.45s ease;
+}
+
+.cards.hide{
+opacity:0;
+transform:translateY(40px);
+pointer-events:none;
 }
 
 .card{
@@ -166,19 +172,21 @@ content:"→";
 position:absolute;
 right:20px;
 bottom:20px;
-font-size:20px;
 }
 
 /* ===== SECTIONS ===== */
 
 .section{
 display:none;
-padding:70px 20px;
-animation:fade 0.4s;
+opacity:0;
+transform:translateY(30px);
+transition:all 0.45s ease;
 }
 
 .section.active{
 display:block;
+opacity:1;
+transform:translateY(0);
 }
 
 .section-box{
@@ -189,18 +197,8 @@ padding:40px;
 border-radius:12px;
 }
 
-iframe{
-border:none;
-border-radius:10px;
-}
-
-@keyframes fade{
-from{opacity:0; transform:translateY(10px);}
-to{opacity:1; transform:translateY(0);}
-}
-
 .back{
-margin-top:30px;
+margin:30px auto;
 display:inline-block;
 background:#FFC72C;
 color:black;
@@ -208,65 +206,16 @@ padding:12px 28px;
 border-radius:30px;
 cursor:pointer;
 font-weight:bold;
+transition:0.25s;
 }
 
-/* ===== FOOTER ===== */
-
-.footer{
-margin-top:80px;
-padding:60px 20px;
-background:rgba(0,0,0,0.7);
-text-align:center;
-}
-
-.footer img{
-height:80px;
-margin-bottom:20px;
-}
-
-.footer-links{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:10px;
-max-width:700px;
-margin:20px auto;
-}
-
-.footer-links a{
-color:#FFC72C;
-text-decoration:none;
-font-weight:bold;
-}
-
-.footer-copy{
-margin-top:20px;
-font-size:12px;
-opacity:0.6;
-}
-
-/* ===== RESPONSIVE ===== */
-
-@media(max-width:800px){
-
-.menu{
-display:none;
-}
-
-.hamburger{
-display:block;
-}
-
-.mobile-menu.show{
-display:flex;
-}
-
+.back:hover{
+transform:scale(1.05);
 }
 
 /* ===== TRAILER PAGE ===== */
 
 .trailer-section{
-font-family:'Segoe UI',sans-serif;
-color:white;
 padding:80px 20px;
 background:
 linear-gradient(rgba(11,34,57,0.9),rgba(11,34,57,0.95)),
@@ -306,12 +255,6 @@ background:rgba(255,255,255,0.08);
 padding:25px;
 border-radius:14px;
 border:1px solid rgba(255,255,255,0.15);
-transition:0.3s;
-}
-
-.info-card:hover{
-transform:translateY(-5px);
-box-shadow:0 10px 30px rgba(0,0,0,0.4);
 }
 
 .info-card i{
@@ -346,65 +289,70 @@ width:100%;
 height:2100px;
 border:none;
 border-radius:10px;
-background:transparent;
 }
 
-/* ===== PAGE TRANSITIONS ===== */
+/* ===== FOOTER ===== */
 
-.cards{
-transition:all 0.45s ease;
+.footer{
+margin-top:80px;
+padding:60px 20px;
+background:rgba(0,0,0,0.7);
+text-align:center;
 }
 
-.cards.hide{
-opacity:0;
-transform:translateY(40px);
-pointer-events:none;
+.footer img{
+height:80px;
+margin-bottom:20px;
 }
 
-.section{
-display:none;
-opacity:0;
-transform:translateY(30px);
-transition:all 0.45s ease;
+.footer-links{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:10px;
+max-width:700px;
+margin:20px auto;
 }
 
-.section.active{
-display:block;
-opacity:1;
-transform:translateY(0);
-}
-
-/* snyggare tillbaka-knapp */
-
-.back{
-margin:30px auto;
-display:inline-block;
-background:#FFC72C;
-color:black;
-padding:12px 28px;
-border-radius:30px;
-cursor:pointer;
+.footer-links a{
+color:#FFC72C;
+text-decoration:none;
 font-weight:bold;
-transition:0.25s;
 }
 
-.back:hover{
-transform:scale(1.05);
-box-shadow:0 8px 20px rgba(0,0,0,0.35);
+.footer-copy{
+margin-top:20px;
+font-size:12px;
+opacity:0.6;
 }
+
+/* ===== HERO ANIMATION ===== */
 
 @keyframes heroMove{
 
-0%{
-background-position:center;
-}
+0%{background-position:center;}
 
-100%{
-background-position:center 30px;
-}
+100%{background-position:center 30px;}
 
 }
-  
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:800px){
+
+.menu{
+display:none;
+}
+
+.hamburger{
+display:block;
+}
+
+.mobile-menu.show{
+display:flex;
+}
+
+}
+
 </style>
 </head>
 
@@ -434,23 +382,11 @@ FMK20FOI
 
 </div>
 
-<div class="mobile-menu" id="mobileMenu">
-<a onclick="goHome()">Start</a>
-<a onclick="openPage('slap')">Släp</a>
-<a onclick="openPage('medlem')">Medlem</a>
-<a onclick="openPage('verktyg')">Verktyg</a>
-<a onclick="openPage('aktiviteter')">Aktiviteter</a>
-<a onclick="openPage('kontakt')">Kontakt</a>
-</div>
-
 </header>
-
-<!-- HERO -->
 
 <div class="hero">
 
 <h1>Försvarets Motorklubb Avdelning 20 FOI</h1>
-
 <p>Säkerhet • Kunskap • Gemenskap</p>
 
 <div class="cta" onclick="openPage('medlem')">
@@ -472,26 +408,26 @@ Bli medlem
 <div class="card" onclick="openPage('verktyg')">
 <i class="fa-solid fa-screwdriver-wrench"></i>
 <h3>Verktyg</h3>
-<p>Föreningens verktyg och utrustning.</p>
+<p>Föreningens verktyg.</p>
 </div>
 
 <div class="card" onclick="openPage('aktiviteter')">
 <i class="fa-solid fa-calendar-days"></i>
 <h3>Aktiviteter</h3>
-<p>Se kommande aktiviteter.</p>
+<p>Kommande aktiviteter.</p>
 </div>
 
 <div class="card" onclick="openPage('kontakt')">
 <i class="fa-solid fa-users"></i>
 <h3>Kontakt</h3>
-<p>Styrelse och kontaktuppgifter.</p>
+<p>Styrelse och kontakt.</p>
 </div>
 
 </div>
 
 </div>
 
-<!-- SECTIONS -->
+<!-- TRAILER PAGE -->
 
 <div id="slap" class="section">
 
@@ -514,19 +450,19 @@ Här kan du se när släpvagnen är ledig och boka en tid.
 <div class="info-card">
 <i class="fa-solid fa-calendar"></i>
 <h3>Boka i kalendern</h3>
-<p>I kalendern ser du om något av släpen är bokade.</p>
+<p>I kalendern ser du om släpet är bokat.</p>
 </div>
 
 <div class="info-card">
 <i class="fa-solid fa-id-card"></i>
 <h3>Endast medlemmar</h3>
-<p>Du kan bli medlem i samband med att du bokar släpet.</p>
+<p>Du kan bli medlem när du bokar.</p>
 </div>
 
 <div class="info-card">
 <i class="fa-solid fa-clock"></i>
 <h3>Återlämning</h3>
-<p>Se till att släpvagnen återlämnas i tid så att nästa medlem kan använda den.</p>
+<p>Lämna tillbaka släpet i tid.</p>
 </div>
 
 </div>
@@ -545,8 +481,6 @@ src="https://calendar.google.com/calendar/embed?src=p5lpi6hpqf0uec2b453u677gqk%4
 
 <h2>Bokningsformulär</h2>
 
-<p>Fyll i formuläret nedan för att boka släpvagnen.</p>
-
 <iframe class="form-frame"
 src="https://docs.google.com/forms/d/e/1FAIpQLSda7JK2HIs4I7xGOXNUKokfO52s2a-hvhh_NPztxkcFw5Sykw/viewform?embedded=true">
 </iframe>
@@ -560,116 +494,12 @@ src="https://docs.google.com/forms/d/e/1FAIpQLSda7JK2HIs4I7xGOXNUKokfO52s2a-hvhh
 <div class="back" onclick="goHome()">← Tillbaka</div>
 
 </div>
-<div class="section-box">
-
-<h2>Boka släpvagn</h2>
-
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSda7JK2HIs4I7xGOXNUKokfO52s2a-hvhh_NPztxkcFw5Sykw/viewform?embedded=true"
-width="100%" height="800"></iframe>
-
-<div class="back" onclick="goHome()">Tillbaka</div>
-
-</div>
-</div>
-
-<div id="medlem" class="section">
-<div class="section-box">
-
-<h2>Bli medlem</h2>
-
-<iframe src="https://forms.gle/rMuXHA5SeB58ZLVs7"
-width="100%" height="800"></iframe>
-
-<div class="back" onclick="goHome()">Tillbaka</div>
-
-</div>
-</div>
-
-<div id="verktyg" class="section">
-<div class="section-box">
-
-<h2>Verktyg</h2>
-
-<p>Föreningen har tillgång till ett stort antal verktyg.</p>
-
-<ul>
-<li>Kalibrering av SU-förgasare</li>
-<li>Mätning av avgasvärden</li>
-<li>Hylsnyckelsats i tum</li>
-<li>Svets</li>
-</ul>
-
-<p>Arbete pågår med att inventera verktygen.</p>
-
-<div class="back" onclick="goHome()">Tillbaka</div>
-
-</div>
-</div>
-
-<div id="aktiviteter" class="section">
-<div class="section-box">
-
-<h2>Aktiviteter</h2>
-
-<p>Kommande aktiviteter publiceras här.</p>
-
-<div class="back" onclick="goHome()">Tillbaka</div>
-
-</div>
-</div>
-
-<div id="kontakt" class="section">
-<div class="section-box">
-
-<h2>Styrelse</h2>
-
-<p><b>Ordförande</b> Leif KG Persson</p>
-<p>leifkgpersson@hotmail.com</p>
-
-<p><b>Sekreterare</b> Filip Brolin</p>
-<p>filip.brolin@foi.se</p>
-
-<p><b>Kassör</b> Jan Carlsson</p>
-
-<h3>Postadress</h3>
-
-<p>
-FMK avd 20 FOI<br>
-Att: Filip Brolin<br>
-16440 Stockholm
-</p>
-
-<div class="back" onclick="goHome()">Tillbaka</div>
-
-</div>
-</div>
-
-<!-- FOOTER -->
-
-<div class="footer">
-
-<img src="https://lh3.googleusercontent.com/d/1CYuV6WLFcPUYGn_iG64HRh2gwwAiS2EL">
-
-<div class="footer-links">
-
-<a href="https://www.fmk.se/">FMK Sverige</a>
-<a href="https://www.fmklivgardet.se/">FMK Livgardet</a>
-<a href="https://www.fmk.se/fmv/">FMK FMV</a>
-<a href="https://www.fmkhalland.se/">FMK Halland</a>
-
-</div>
-
-<div class="footer-copy">
-© 2025 FMK Avdelning 20 FOI
-</div>
-
-</div>
 
 <script>
 
 function openPage(id){
 
-const cards = document.querySelector(".cards")
+const cards=document.querySelector(".cards")
 
 cards.classList.add("hide")
 
@@ -686,7 +516,7 @@ window.scrollTo({top:0,behavior:'smooth'})
 
 function goHome(){
 
-const cards = document.querySelector(".cards")
+const cards=document.querySelector(".cards")
 
 cards.classList.remove("hide")
 
@@ -699,7 +529,7 @@ window.scrollTo({top:0,behavior:'smooth'})
 }
 
 function toggleMenu(){
-document.getElementById("mobileMenu").classList.toggle("show")
+document.getElementById("mobileMenu")?.classList.toggle("show")
 }
 
 </script>
