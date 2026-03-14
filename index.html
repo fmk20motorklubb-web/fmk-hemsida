@@ -21,17 +21,6 @@ color:white;
 min-height:100%;
 }
 
-/* extra skydd mot Google Sites rutnät */
-
-html, body{
-margin:0;
-padding:0;
-font-family:'Segoe UI',sans-serif;
-background:#0B2239;
-color:white;
-min-height:100%;
-}
-
 .container{
 max-width:1200px;
 margin:auto;
@@ -101,10 +90,6 @@ padding:20px;
 gap:15px;
 }
 
-.mobile-menu a{
-cursor:pointer;
-}
-
 /* ===== HERO ===== */
 
 .hero{
@@ -141,10 +126,9 @@ transition:0.3s;
 
 .cta:hover{
 transform:scale(1.05);
-box-shadow:0 8px 25px rgba(0,0,0,0.4);
 }
 
-/* ===== KORT ===== */
+/* ===== CARDS ===== */
 
 .cards{
 margin:70px auto;
@@ -172,11 +156,6 @@ box-shadow:0 10px 30px rgba(0,0,0,0.6);
 font-size:34px;
 color:#FFC72C;
 margin-bottom:10px;
-transition:0.3s;
-}
-
-.card:hover i{
-transform:scale(1.2);
 }
 
 .card::after{
@@ -184,8 +163,6 @@ content:"→";
 position:absolute;
 right:20px;
 bottom:20px;
-font-size:20px;
-opacity:0.8;
 }
 
 /* ===== SECTIONS ===== */
@@ -193,7 +170,6 @@ opacity:0.8;
 .section{
 display:none;
 padding:70px 20px;
-animation:fade 0.4s;
 }
 
 .section.active{
@@ -208,16 +184,6 @@ padding:40px;
 border-radius:12px;
 }
 
-iframe{
-border:none;
-border-radius:10px;
-}
-
-@keyframes fade{
-from{opacity:0;transform:translateY(10px);}
-to{opacity:1;transform:translateY(0);}
-}
-
 .back{
 margin-top:30px;
 display:inline-block;
@@ -226,7 +192,6 @@ color:black;
 padding:12px 28px;
 border-radius:30px;
 cursor:pointer;
-font-weight:bold;
 }
 
 /* ===== FOOTER ===== */
@@ -263,8 +228,6 @@ font-size:12px;
 opacity:0.6;
 }
 
-/* ===== RESPONSIVE ===== */
-
 @media(max-width:800px){
 
 .menu{
@@ -285,3 +248,102 @@ display:flex;
 </head>
 
 <body>
+
+<header class="header">
+
+<div class="nav container">
+
+<div class="logo">
+<img src="https://lh3.googleusercontent.com/d/1CYuV6WLFcPUYGn_iG64HRh2gwwAiS2EL">
+FMK20FOI
+</div>
+
+<div class="menu">
+<a onclick="home()">Start</a>
+<a onclick="show('slap')">Släp</a>
+<a onclick="show('medlem')">Medlem</a>
+<a onclick="show('verktyg')">Verktyg</a>
+<a onclick="show('aktiviteter')">Aktiviteter</a>
+<a onclick="show('kontakt')">Kontakt</a>
+</div>
+
+<div class="hamburger" onclick="toggleMenu()">
+<i class="fa-solid fa-bars"></i>
+</div>
+
+</div>
+
+</header>
+
+<div class="hero">
+
+<h1>Försvarets Motorklubb Avdelning 20 FOI</h1>
+
+<p>Säkerhet • Kunskap • Gemenskap</p>
+
+<div class="cta" onclick="show('medlem')">
+Bli medlem
+</div>
+
+</div>
+
+<div class="container">
+
+<div class="cards">
+
+<div class="card" onclick="show('slap')">
+<i class="fa-solid fa-truck"></i>
+<h3>Boka släpvagn</h3>
+</div>
+
+<div class="card" onclick="show('verktyg')">
+<i class="fa-solid fa-screwdriver-wrench"></i>
+<h3>Verktyg</h3>
+</div>
+
+<div class="card" onclick="show('aktiviteter')">
+<i class="fa-solid fa-calendar-days"></i>
+<h3>Aktiviteter</h3>
+</div>
+
+<div class="card" onclick="show('kontakt')">
+<i class="fa-solid fa-users"></i>
+<h3>Kontakt</h3>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function show(page){
+
+document.querySelectorAll(".section").forEach(s=>{
+s.classList.remove("active")
+})
+
+document.getElementById(page)?.classList.add("active")
+
+window.scrollTo({top:0,behavior:'smooth'})
+
+}
+
+function home(){
+
+document.querySelectorAll(".section").forEach(s=>{
+s.classList.remove("active")
+})
+
+window.scrollTo({top:0,behavior:'smooth'})
+
+}
+
+function toggleMenu(){
+document.getElementById("mobileMenu")?.classList.toggle("show")
+}
+
+</script>
+
+</body>
+</html>
