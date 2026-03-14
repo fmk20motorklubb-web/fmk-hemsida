@@ -17,12 +17,30 @@ margin:0;
 font-family:'Segoe UI',sans-serif;
 background:#0B2239;
 color:white;
+overflow-x:hidden;
 }
 
 .container{
 max-width:1200px;
 margin:auto;
 padding:0 20px;
+}
+
+/* ===== TECH BAKGRUND ===== */
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background-image:
+linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+background-size:40px 40px;
+pointer-events:none;
+z-index:-1;
 }
 
 /* ===== HEADER ===== */
@@ -32,7 +50,7 @@ position:sticky;
 top:0;
 z-index:1000;
 background:#07182a;
-box-shadow:0 4px 20px rgba(0,0,0,0.4);
+box-shadow:0 5px 25px rgba(0,0,0,0.5);
 }
 
 .nav{
@@ -45,18 +63,18 @@ padding:14px 20px;
 .logo{
 display:flex;
 align-items:center;
-gap:10px;
+gap:12px;
 font-weight:bold;
 font-size:20px;
 }
 
 .logo img{
-height:36px;
+height:38px;
 }
 
 .menu{
 display:flex;
-gap:25px;
+gap:26px;
 }
 
 .menu a{
@@ -87,20 +105,26 @@ padding:20px;
 gap:15px;
 }
 
+.mobile-menu a{
+color:white;
+text-decoration:none;
+font-size:18px;
+}
+
 /* ===== HERO ===== */
 
 .hero{
-padding:90px 20px;
+padding:110px 20px;
 text-align:center;
 background:
-linear-gradient(rgba(11,34,57,0.9),rgba(11,34,57,0.95)),
+linear-gradient(rgba(11,34,57,0.9),rgba(11,34,57,0.96)),
 url("https://lh3.googleusercontent.com/d/1aXQ0njh5TUbQMG_rPeyEUuTnJwuJUVhR");
 background-size:cover;
 background-position:center;
 }
 
 .hero h1{
-font-size:46px;
+font-size:48px;
 margin-bottom:10px;
 }
 
@@ -114,16 +138,22 @@ display:inline-block;
 margin-top:30px;
 background:#FFC72C;
 color:black;
-padding:16px 34px;
+padding:16px 36px;
 border-radius:40px;
 font-weight:bold;
 cursor:pointer;
+transition:0.3s;
 }
 
-/* ===== KORT ===== */
+.cta:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px rgba(255,199,44,0.7);
+}
+
+/* ===== CARDS ===== */
 
 .cards{
-margin:70px auto;
+margin:80px auto;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:30px;
@@ -138,15 +168,16 @@ border:1px solid rgba(255,255,255,0.15);
 cursor:pointer;
 transition:0.35s;
 position:relative;
+overflow:hidden;
 }
 
 .card:hover{
 transform:translateY(-8px);
-box-shadow:0 10px 30px rgba(0,0,0,0.6);
+box-shadow:0 10px 35px rgba(0,0,0,0.6);
 }
 
 .card i{
-font-size:34px;
+font-size:36px;
 color:#FFC72C;
 margin-bottom:10px;
 }
@@ -164,25 +195,29 @@ opacity:0.8;
 
 .section{
 display:none;
-padding:70px 20px;
-animation:fade 0.4s;
+padding:80px 20px;
+opacity:0;
+transform:translateY(20px);
+transition:all 0.4s ease;
 }
 
 .section.active{
 display:block;
+opacity:1;
+transform:translateY(0);
 }
 
 .section-box{
 max-width:1000px;
 margin:auto;
-background:rgba(0,0,0,0.4);
+background:rgba(0,0,0,0.45);
 padding:40px;
 border-radius:12px;
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
 }
 
-@keyframes fade{
-from{opacity:0;transform:translateY(10px);}
-to{opacity:1;transform:translateY(0);}
+.section-box h2{
+margin-top:0;
 }
 
 .back{
@@ -201,19 +236,19 @@ font-weight:bold;
 .footer{
 margin-top:80px;
 padding:60px 20px;
-background:rgba(0,0,0,0.7);
+background:rgba(0,0,0,0.75);
 text-align:center;
 }
 
 .footer img{
-height:80px;
+height:85px;
 margin-bottom:20px;
 }
 
 .footer-links{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:10px;
+gap:12px;
 max-width:700px;
 margin:20px auto;
 }
@@ -222,6 +257,10 @@ margin:20px auto;
 color:#FFC72C;
 text-decoration:none;
 font-weight:bold;
+}
+
+.footer-links a:hover{
+text-shadow:0 0 10px rgba(255,199,44,0.8);
 }
 
 .footer-copy{
@@ -244,6 +283,10 @@ display:block;
 
 .mobile-menu.show{
 display:flex;
+}
+
+.hero h1{
+font-size:34px;
 }
 
 }
@@ -278,7 +321,6 @@ FMK20FOI
 </div>
 
 <div class="mobile-menu" id="mobileMenu">
-<a onclick="home()">Start</a>
 <a onclick="show('slap')">Släp</a>
 <a onclick="show('medlem')">Medlem</a>
 <a onclick="show('verktyg')">Verktyg</a>
@@ -288,12 +330,10 @@ FMK20FOI
 
 </header>
 
-<!-- HERO -->
 
 <div class="hero">
 
 <h1>Försvarets Motorklubb Avdelning 20 FOI</h1>
-
 <p>Säkerhet • Kunskap • Gemenskap</p>
 
 <div class="cta" onclick="show('medlem')">
@@ -302,6 +342,7 @@ Bli medlem
 
 </div>
 
+
 <div class="container">
 
 <div class="cards">
@@ -309,32 +350,31 @@ Bli medlem
 <div class="card" onclick="show('slap')">
 <i class="fa-solid fa-truck"></i>
 <h3>Boka släpvagn</h3>
-<p>Boka föreningens släpvagn.</p>
+<p>Boka föreningens släp.</p>
 </div>
 
 <div class="card" onclick="show('verktyg')">
 <i class="fa-solid fa-screwdriver-wrench"></i>
 <h3>Verktyg</h3>
-<p>Föreningens verktyg och utrustning.</p>
+<p>Föreningens verktyg.</p>
 </div>
 
 <div class="card" onclick="show('aktiviteter')">
 <i class="fa-solid fa-calendar-days"></i>
 <h3>Aktiviteter</h3>
-<p>Se kommande aktiviteter.</p>
+<p>Kommande träffar.</p>
 </div>
 
 <div class="card" onclick="show('kontakt')">
 <i class="fa-solid fa-users"></i>
 <h3>Kontakt</h3>
-<p>Styrelse och kontaktuppgifter.</p>
+<p>Styrelse och arkiv.</p>
 </div>
 
 </div>
 
 </div>
 
-<!-- SECTIONS -->
 
 <div id="slap" class="section">
 <div class="section-box">
@@ -369,9 +409,7 @@ width="100%" height="800"></iframe>
 
 <h2>Verktyg</h2>
 
-<p>
-Föreningen har tillgång till ett stort antal verktyg.
-</p>
+<p>Föreningen har tillgång till ett stort antal verktyg.</p>
 
 <ul>
 <li>Kalibrering av SU-förgasare</li>
@@ -380,9 +418,7 @@ Föreningen har tillgång till ett stort antal verktyg.
 <li>Svets</li>
 </ul>
 
-<p>
-Arbete pågår med att inventera verktygen.
-</p>
+<p>Inventering pågår innan utlåning öppnas.</p>
 
 <div class="back" onclick="home()">Tillbaka</div>
 
@@ -395,9 +431,7 @@ Arbete pågår med att inventera verktygen.
 
 <h2>Aktiviteter</h2>
 
-<p>
-Kommande aktiviteter publiceras här.
-</p>
+<p>Kommande aktiviteter publiceras här.</p>
 
 <div class="back" onclick="home()">Tillbaka</div>
 
@@ -431,7 +465,6 @@ Att: Filip Brolin<br>
 </div>
 </div>
 
-<!-- FOOTER -->
 
 <div class="footer">
 
@@ -454,6 +487,7 @@ Att: Filip Brolin<br>
 
 </div>
 
+
 <script>
 
 function show(page){
@@ -464,8 +498,9 @@ s.classList.remove("active")
 
 document.getElementById(page).classList.add("active")
 
-window.scrollTo({top:0,behavior:'smooth'})
+document.getElementById("mobileMenu").classList.remove("show")
 
+window.scrollTo({top:0,behavior:'smooth'})
 }
 
 function home(){
@@ -475,7 +510,6 @@ s.classList.remove("active")
 })
 
 window.scrollTo({top:0,behavior:'smooth'})
-
 }
 
 function toggleMenu(){
