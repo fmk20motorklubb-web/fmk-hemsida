@@ -233,12 +233,12 @@ border-radius:10px;
 .footer{
 margin-top:80px;
 padding:60px 20px;
-background:#07182a;
+background:rgba(0,0,0,0.7);
 text-align:center;
 }
 
 .footer img{
-height:70px;
+height:80px;
 margin-bottom:20px;
 }
 
@@ -246,16 +246,28 @@ margin-bottom:20px;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
 gap:10px;
-max-width:600px;
-margin:auto;
+max-width:700px;
+margin:20px auto;
 }
 
 .footer-links a{
 color:#FFC72C;
 text-decoration:none;
 font-weight:bold;
-cursor:pointer;
 }
+
+.footer-copy{
+margin-top:20px;
+font-size:12px;
+opacity:0.6;
+}
+
+iframe{
+width:100%;
+border:none;
+border-radius:10px;
+}
+
 
 /* ===== MOBILE ===== */
 
@@ -570,15 +582,24 @@ Att: Filip Brolin<br>
 <div class="footer">
 
 <img src="https://lh3.googleusercontent.com/d/1CYuV6WLFcPUYGn_iG64HRh2gwwAiS2EL">
+
 <div class="footer-links">
-<a onclick="goHome()">Startsida</a>
-<a onclick="showPage('trailer')">Släp</a>
-<a onclick="showPage('member')">Medlem</a>
-<a onclick="showPage('activity')">Aktiviteter</a>
-<a onclick="showPage('contact')">Kontakt</a>
+
+<a href="https://www.fmk.se/">FMK Sverige</a>
+<a href="https://www.fmklivgardet.se/">FMK Livgardet</a>
+<a href="https://www.fmk.se/fmv/">FMK FMV</a>
+<a href="https://www.fmkhalland.se/">FMK Halland</a>
+<a href="https://www.fmk.se/sodermanland/">FMK Södermanland</a>
+<a href="https://www.fmk.se/uddevalla/">FMK Uddevalla</a>
+
+</div>
+
+<div class="footer-copy">
+© 2025 FMK Avdelning 20 FOI
 </div>
 
 </div>
+
 
 <script>
 
