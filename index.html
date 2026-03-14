@@ -9,6 +9,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr !important; /* Tvingar 1 kolumn på mobil */
+    }
+}
 /* ===== BAS ===== */
 body{
 margin:0;
@@ -334,39 +339,35 @@ background: white;
         </div>
     </div>
 
-    <div class="info-box">
-        <h2>Våra Släpvagnar</h2>
-        <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 20px;">
-            <div class="box" style="background:rgba(255,255,255,0.05)">
-                <h3 style="color:#FFC72C;">AMR748</h3>
-                <p><strong>Typ:</strong> Flak <br>
-                <strong>Mått:</strong> 4100x1880 mm<br>
-                <strong>Vikt:</strong> 260kg (Total: 750kg)<br>
-                <strong>Last:</strong> 490 kg</p>
-            </div>
-            <div class="box" style="background:rgba(255,255,255,0.05)">
-                <h3 style="color:#FFC72C;">RMZ385</h3>
-                <p><strong>Typ:</strong> Flak/Biltransport <br>
-                <strong>Mått:</strong> 5330x2320 mm<br>
-                <strong>Vikt:</strong> 400kg (Total: 1500kg)<br>
-                <strong>Last:</strong> 1100 kg</p>
-            </div>
+    <h2>Våra Släpvagnar</h2>
+    <div class="grid">
+        <div class="box" style="background:rgba(255,255,255,0.05)">
+            <h3 style="color:#FFC72C;">AMR748</h3>
+            <p><strong>Typ:</strong> Flak Godslåda<br>
+            <strong>Mått:</strong> 4100x1880 mm<br>
+            <strong>Vikt:</strong> 260kg (Total: 750kg)<br>
+            <strong>Last:</strong> 490 kg</p>
+        </div>
+        <div class="box" style="background:rgba(255,255,255,0.05)">
+            <h3 style="color:#FFC72C;">RMZ385</h3>
+            <p><strong>Typ:</strong> Flak Godslåda<br>
+            <strong>Mått:</strong> 5330x2320 mm<br>
+            <strong>Vikt:</strong> 400kg (Total: 1500kg)<br>
+            <strong>Last:</strong> 1100 kg</p>
         </div>
     </div>
 
-    <div class="info-box" style="text-align: center; border: 2px dashed #FFC72C;">
-        <h3>Osäker på om du får dra släpet?</h3>
-        <p>Använd Transportstyrelsens släpvagnskalkylator för att se vad som gäller för just din bil och ditt körkort.</p>
+    <div class="info-box" style="text-align: center; border: 1px solid #FFC72C;">
+        <h3 style="margin-top:0;">Kolla behörighet</h3>
+        <p>Använd Transportstyrelsens kalkylator för att se om din bil får dra släpet.</p>
         <a href="https://slapvagnskalkylatorn.transportstyrelsen.se/Slapvagnskalkylator/Slapvagnskalkylator.aspx" 
-           target="_blank" 
-           class="cta" 
-           style="margin-top: 10px; font-size: 14px; padding: 12px 24px;">
-           Öppna Släpvagnskalkylatorn
+           target="_blank" class="cta" style="margin-top: 10px; text-decoration:none;">
+           Öppna Kalkylatorn
         </a>
     </div>
 
     <h2>Bokningskalender</h2>
-    <div style="overflow:hidden; border-radius:10px; background:white;">
+    <div style="width:100%; border-radius:10px; overflow:hidden; background:white;">
         <iframe height="400" style="width:100%; border:none; display:block;"
         src="https://calendar.google.com/calendar/embed?src=p5lpi6hpqf0uec2b453u677gqk%40group.calendar.google.com&ctz=Europe%2FStockholm">
         </iframe>
