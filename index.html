@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="sv">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>FMK Avdelning 20 FOI</title>
+<title>FMK20FOI</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+  
 <style>
 
-/* ===== GLOBAL ===== */
-
-*{
-box-sizing:border-box;
-}
+/* ===== BAS ===== */
 
 body{
 margin:0;
 font-family:'Segoe UI',sans-serif;
 background:#0B2239;
 color:white;
-overflow-x:hidden;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:0 20px;
 }
 
 /* ===== HEADER ===== */
@@ -33,12 +33,10 @@ position:sticky;
 top:0;
 z-index:1000;
 background:#07182a;
-box-shadow:0 4px 15px rgba(0,0,0,0.4);
+box-shadow:0 4px 20px rgba(0,0,0,0.4);
 }
 
 .nav{
-max-width:1100px;
-margin:auto;
 display:flex;
 align-items:center;
 justify-content:space-between;
@@ -50,12 +48,11 @@ display:flex;
 align-items:center;
 gap:10px;
 font-weight:bold;
-font-size:18px;
+font-size:20px;
 }
 
 .logo img{
-height:32px;
-width:auto;
+height:36px;
 }
 
 .menu{
@@ -68,43 +65,22 @@ color:white;
 text-decoration:none;
 font-weight:500;
 cursor:pointer;
-opacity:0.9;
 }
 
 .menu a:hover{
 color:#FFC72C;
 }
 
-.hamburger{
-display:none;
-font-size:24px;
-cursor:pointer;
-}
-
-/* ===== MOBILE MENU ===== */
-
-.mobile-menu{
-display:none;
-flex-direction:column;
-background:#07182a;
-padding:20px;
-gap:15px;
-}
-
-.mobile-menu a{
-cursor:pointer;
-}
-
 /* ===== HERO ===== */
 
 .hero{
+padding:90px 20px;
+text-align:center;
 background:
 linear-gradient(rgba(11,34,57,0.9),rgba(11,34,57,0.95)),
 url("https://lh3.googleusercontent.com/d/1aXQ0njh5TUbQMG_rPeyEUuTnJwuJUVhR");
 background-size:cover;
 background-position:center;
-padding:110px 20px;
-text-align:center;
 }
 
 .hero h1{
@@ -114,31 +90,23 @@ margin-bottom:10px;
 
 .hero p{
 font-size:20px;
-opacity:0.9;
 }
 
 .cta{
 display:inline-block;
-margin-top:25px;
+margin-top:30px;
 background:#FFC72C;
 color:black;
-padding:14px 30px;
+padding:16px 34px;
 border-radius:40px;
 font-weight:bold;
 cursor:pointer;
-text-decoration:none;
 }
 
-/* ===== NAV BOXES ===== */
-
-.container{
-max-width:1100px;
-margin:auto;
-padding:0 20px;
-}
+/* ===== CARDS ===== */
 
 .cards{
-margin:70px auto;
+margin:60px auto;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:30px;
@@ -150,82 +118,69 @@ padding:30px;
 border-radius:14px;
 border:1px solid rgba(255,255,255,0.15);
 cursor:pointer;
-transition:0.3s;
-text-align:center;
+transition:0.35s;
 }
 
 .card:hover{
-transform:translateY(-6px);
-box-shadow:0 10px 25px rgba(0,0,0,0.4);
+transform:translateY(-8px);
+box-shadow:0 10px 30px rgba(0,0,0,0.6);
 }
 
 .card i{
-font-size:32px;
+font-size:34px;
 color:#FFC72C;
 margin-bottom:10px;
 }
 
-/* ===== SECTIONS ===== */
+/* ===== SECTION ===== */
 
 .section{
 display:none;
-padding:70px 0;
+padding:70px 20px;
 }
 
-.section.active{
-display:block;
-}
+/* ===== BACK BUTTON ===== */
 
 .back{
 display:inline-block;
-margin-bottom:30px;
+margin:20px 0 40px 0;
 background:#FFC72C;
 color:black;
-padding:10px 24px;
+padding:12px 28px;
 border-radius:30px;
-font-weight:bold;
 cursor:pointer;
+font-weight:bold;
 }
 
-/* ===== GRIDS ===== */
+/* ===== GRID BOXES ===== */
 
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
 gap:30px;
-margin-bottom:50px;
+margin-bottom:60px;
 }
 
 .box{
 background:rgba(255,255,255,0.08);
 padding:25px;
-border-radius:12px;
-}
-  
-.box i{
-font-size:30px;
-color:#FFC72C;
-margin-bottom:10px;
-display:block;
-}
-  
-.box i{
-font-size:30px;
-color:#FFC72C;
-margin-bottom:10px;
-display:block;
-}
-.content-box{
-background:rgba(0,0,0,0.35);
-padding:30px;
-border-radius:12px;
-margin-bottom:50px;
+border-radius:14px;
+border:1px solid rgba(255,255,255,0.15);
 }
 
-iframe{
-width:100%;
-border:none;
-border-radius:10px;
+.box i{
+font-size:32px;
+color:#FFC72C;
+margin-bottom:10px;
+}
+
+/* ===== INFO BOX ===== */
+
+.info-box{
+background:rgba(0,0,0,0.4);
+padding:30px;
+border-radius:12px;
+margin-bottom:40px;
 }
 
 /* ===== FOOTER ===== */
@@ -268,22 +223,11 @@ border:none;
 border-radius:10px;
 }
 
-
-/* ===== MOBILE ===== */
+/* ===================== */
+/* MOBIL OPTIMERING */
+/* ===================== */
 
 @media(max-width:800px){
-
-.menu{
-display:none;
-}
-
-.hamburger{
-display:block;
-}
-
-.mobile-menu.show{
-display:flex;
-}
 
 .hero{
 padding:70px 20px;
@@ -291,6 +235,7 @@ padding:70px 20px;
 
 .hero h1{
 font-size:28px;
+line-height:1.2;
 }
 
 .hero p{
@@ -299,14 +244,42 @@ font-size:16px;
 
 .cards{
 grid-template-columns:1fr;
+gap:20px;
 }
 
-.grid{
+.info-grid,
+.activity-grid,
+.board-grid{
 grid-template-columns:1fr;
 }
 
-iframe{
-height:650px;
+.section-box{
+padding:25px;
+}
+
+.calendar-frame{
+height:500px;
+}
+
+.form-frame{
+height:1200px;
+}
+
+.member-title,
+.activity-title,
+.contact-title{
+font-size:30px;
+}
+
+.member-section,
+.activity-section,
+.contact-section,
+.trailer-section{
+padding:70px 20px;
+}
+
+.footer-links{
+grid-template-columns:1fr;
 }
 
 }
@@ -316,74 +289,62 @@ height:650px;
 
 <body>
 
-<!-- HEADER -->
+<header class="header">
 
-<div class="header">
-
-<div class="nav">
+<div class="nav container">
 
 <div class="logo">
 <img src="https://lh3.googleusercontent.com/d/1CYuV6WLFcPUYGn_iG64HRh2gwwAiS2EL">
-<span>FMK20FOI</span>
+FMK20FOI
 </div>
 
 <div class="menu">
 <a onclick="goHome()">Start</a>
-<a onclick="showPage('trailer')">Släp</a>
-<a onclick="showPage('member')">Medlem</a>
-<a onclick="showPage('activity')">Aktiviteter</a>
-<a onclick="showPage('contact')">Kontakt</a>
-</div>
-
-<div class="hamburger" onclick="toggleMenu()">
-<i class="fa-solid fa-bars"></i>
+<a onclick="show('slap')">Släp</a>
+<a onclick="show('medlem')">Medlem</a>
+<a onclick="show('aktiviteter')">Aktiviteter</a>
+<a onclick="show('kontakt')">Kontakt</a>
 </div>
 
 </div>
 
-<div class="mobile-menu" id="mobileMenu">
-<a onclick="goHome()">Start</a>
-<a onclick="showPage('trailer')">Släp</a>
-<a onclick="showPage('member')">Medlem</a>
-<a onclick="showPage('activity')">Aktiviteter</a>
-<a onclick="showPage('contact')">Kontakt</a>
-</div>
-
-</div>
+</header>
 
 <!-- HERO -->
 
 <div class="hero">
-<h1>Försvarets Motorklubb</h1>
-<p>Avdelning 20 FOI</p>
-<a class="cta" onclick="showPage('member')">Bli medlem</a>
+
+<h1>Försvarets Motorklubb Avdelning 20 FOI</h1>
+
+<p>Säkerhet • Kunskap • Gemenskap</p>
+
+<div class="cta" onclick="show('medlem')">
+Bli medlem
+</div>
+
 </div>
 
 <div class="container">
 
-<!-- START -->
+<div id="homeCards" class="cards">
 
-<div id="home">
-
-<div class="cards">
-
-<div class="card" onclick="showPage('trailer')">
+<div class="card" onclick="show('slap')">
 <i class="fa-solid fa-truck"></i>
 <h3>Boka släpvagn</h3>
 </div>
 
-<div class="card" onclick="showPage('member')">
+<div class="card" onclick="show('medlem')">
 <i class="fa-solid fa-users"></i>
 <h3>Bli medlem</h3>
 </div>
 
-<div class="card" onclick="showPage('activity')">
-<i class="fa-solid fa-calendar"></i>
+<div class="card" onclick="show('aktiviteter')">
+<i class="fa-solid fa-calendar-days"></i>
 <h3>Aktiviteter</h3>
 </div>
 
-<div class="card" onclick="showPage('contact')">
-<i class="fa-solid fa-envelope"></i>
+<div class="card" onclick="show('kontakt')">
+<i class="fa-solid fa-address-book"></i>
 <h3>Kontakt</h3>
 </div>
 
@@ -391,13 +352,13 @@ height:650px;
 
 </div>
 
-<!-- TRAILER -->
+<!-- SLÄP -->
 
-<div id="trailer" class="section">
+<div id="slap" class="section container">
 
 <div class="back" onclick="goHome()">← Tillbaka</div>
 
-<h2>Boka släpvagn</h2>
+<h1>Boka släpvagn</h1>
 
 <div class="grid">
 
@@ -410,46 +371,40 @@ height:650px;
 <div class="box">
 <i class="fa-solid fa-id-card"></i>
 <h3>Endast medlemmar</h3>
-<p>Du kan bli medlem i samband med bokning.</p>
+<p>Du kan bli medlem i samband med att du bokar.</p>
 </div>
 
 <div class="box">
 <i class="fa-solid fa-clock"></i>
 <h3>Återlämning</h3>
-<p>Lämna tillbaka släpet i tid.</p>
+<p>Se till att släpet återlämnas i tid.</p>
 </div>
 
 </div>
 
-<div class="content-box">
-
-<h3>Bokningskalender</h3>
+<h2>Bokningskalender</h2>
 
 <iframe height="650"
 src="https://calendar.google.com/calendar/embed?src=p5lpi6hpqf0uec2b453u677gqk%40group.calendar.google.com&ctz=Europe%2FStockholm">
 </iframe>
 
-</div>
-
-<div class="content-box">
-
-<h3>Bokningsformulär</h3>
+<h2>Bokningsformulär</h2>
 
 <iframe height="2100"
 src="https://docs.google.com/forms/d/e/1FAIpQLSda7JK2HIs4I7xGOXNUKokfO52s2a-hvhh_NPztxkcFw5Sykw/viewform?embedded=true">
 </iframe>
 
-</div>
+<div class="back" onclick="goHome()">← Tillbaka</div>
 
 </div>
 
-<!-- MEMBER -->
+<!-- MEDLEM -->
 
-<div id="member" class="section">
+<div id="medlem" class="section container">
 
 <div class="back" onclick="goHome()">← Tillbaka</div>
 
-<h2>Bli medlem</h2>
+<h1>Bli medlem</h1>
 
 <div class="grid">
 
@@ -462,52 +417,51 @@ src="https://docs.google.com/forms/d/e/1FAIpQLSda7JK2HIs4I7xGOXNUKokfO52s2a-hvhh
 <div class="box">
 <i class="fa-solid fa-calendar"></i>
 <h3>Aktiviteter</h3>
-<p>Som medlem kan du delta i våra aktiviteter.</p>
+<p>Delta i våra träffar och aktiviteter.</p>
 </div>
 
 <div class="box">
 <i class="fa-solid fa-truck"></i>
 <h3>Släpvagn</h3>
-<p>Medlemmar kan boka släpvagnen.</p>
+<p>Medlemmar kan boka föreningens släpvagn.</p>
 </div>
 
 </div>
 
-<div class="content-box">
+<div class="info-box">
 
-<h3>Betala medlemsavgift</h3>
+<h2>Betala medlemsavgiften</h2>
 
 <p>150 kr till Plusgiro:</p>
-<h2>557566-7</h2>
+
+<p style="font-size:20px;font-weight:bold;">
+557566-7
+</p>
 
 </div>
 
-<div class="content-box">
-
-<h3>Fyll i formuläret</h3>
-
-<iframe height="1600"
+<iframe height="1500"
 src="https://docs.google.com/forms/d/e/1FAIpQLSf9v1p6jspS8VKx_MCT0WEQDS9sAIwNUfMxOopJ2XSB_UVRyQ/viewform?embedded=true">
 </iframe>
 
-</div>
+<div class="back" onclick="goHome()">← Tillbaka</div>
 
 </div>
 
-<!-- ACTIVITY -->
+<!-- AKTIVITETER -->
 
-<div id="activity" class="section">
+<div id="aktiviteter" class="section container">
 
 <div class="back" onclick="goHome()">← Tillbaka</div>
 
-<h2>Aktiviteter</h2>
+<h1>Aktiviteter</h1>
 
 <div class="grid">
 
 <div class="box">
 <i class="fa-solid fa-users"></i>
 <h3>Träffar</h3>
-<p>Regelbundna träffar för medlemmar.</p>
+<p>Vi arrangerar regelbundna träffar.</p>
 </div>
 
 <div class="box">
@@ -519,41 +473,67 @@ src="https://docs.google.com/forms/d/e/1FAIpQLSf9v1p6jspS8VKx_MCT0WEQDS9sAIwNUfM
 <div class="box">
 <i class="fa-solid fa-road"></i>
 <h3>Körningar</h3>
-<p>Gemensamma turer.</p>
+<p>Gemensamma turer och aktiviteter.</p>
 </div>
 
 <div class="box">
 <i class="fa-solid fa-calendar-days"></i>
 <h3>Evenemang</h3>
-<p>Information skickas via mail.</p>
+<p>Medlemmar informeras först.</p>
 </div>
 
 </div>
-
-</div>
-
-<!-- CONTACT -->
-
-<div id="contact" class="section">
 
 <div class="back" onclick="goHome()">← Tillbaka</div>
 
-<h2>Styrelse & Kontakt</h2>
+</div>
+
+<!-- KONTAKT -->
+
+<div id="kontakt" class="section container">
+
+<div class="back" onclick="goHome()">← Tillbaka</div>
+
+<h1>Styrelse & Kontakt</h1>
 
 <div class="grid">
 
-<div class="box"><h3>Ordförande</h3><p>Leif KG Persson</p></div>
-<div class="box"><h3>Sekreterare</h3><p>Filip Brolin</p></div>
-<div class="box"><h3>Kassör</h3><p>Jan Carlsson</p></div>
-<div class="box"><h3>Ledamot</h3><p>Gösta Ljungdahl</p></div>
-<div class="box"><h3>Ledamot</h3><p>Göran Stensson</p></div>
-<div class="box"><h3>Revisor</h3><p>Ola Listh</p></div>
+<div class="box">
+<h3>Ordförande</h3>
+<p>Leif KG Persson</p>
+<p>070-3760405</p>
+</div>
+
+<div class="box">
+<h3>Sekreterare</h3>
+<p>Filip Brolin</p>
+</div>
+
+<div class="box">
+<h3>Kassör</h3>
+<p>Jan Carlsson</p>
+</div>
+
+<div class="box">
+<h3>Ledamot</h3>
+<p>Gösta Ljungdahl</p>
+</div>
+
+<div class="box">
+<h3>Ledamot</h3>
+<p>Göran Stensson</p>
+</div>
+
+<div class="box">
+<h3>Revisor</h3>
+<p>Ola Listh</p>
+</div>
 
 </div>
 
-<div class="content-box">
+<div class="info-box">
 
-<h3>Adress</h3>
+<h2>Adress</h2>
 
 <p>
 FMK avd 20 FOI<br>
@@ -563,17 +543,19 @@ Att: Filip Brolin<br>
 
 </div>
 
-<div class="content-box">
+<div class="info-box">
 
-<h3>Arkiv</h3>
+<h2>Arkiv</h2>
 
-<a href="https://drive.google.com/file/d/1sSMHrJM6rUjEXueVQUWjqMoXAlrD6iUY/view?usp=sharing" target="_blank">
+<a href="https://drive.google.com/file/d/1sSMHrJM6rUjEXueVQUWjqMoXAlrD6iUY/view?usp=sharing"
+target="_blank"
+style="color:#FFC72C;font-weight:bold;">
 Öppna stadgar
 </a>
 
 </div>
 
-</div>
+<div class="back" onclick="goHome()">← Tillbaka</div>
 
 </div>
 
@@ -600,45 +582,32 @@ Att: Filip Brolin<br>
 
 </div>
 
-
 <script>
 
-function showPage(id){
+function show(page){
 
-document.getElementById("home").style.display="none";
+document.getElementById("homeCards").style.display="none"
 
 document.querySelectorAll(".section").forEach(s=>{
-s.classList.remove("active");
-});
+s.style.display="none"
+})
 
-document.getElementById(id).classList.add("active");
+document.getElementById(page).style.display="block"
 
-window.scrollTo({top:0,behavior:"smooth"});
-
-closeMenu();
+window.scrollTo({top:0,behavior:'smooth'})
 
 }
 
 function goHome(){
 
-document.getElementById("home").style.display="block";
+document.getElementById("homeCards").style.display="grid"
 
 document.querySelectorAll(".section").forEach(s=>{
-s.classList.remove("active");
-});
+s.style.display="none"
+})
 
-window.scrollTo({top:0,behavior:"smooth"});
+window.scrollTo({top:0,behavior:'smooth'})
 
-closeMenu();
-
-}
-
-function toggleMenu(){
-document.getElementById("mobileMenu").classList.toggle("show");
-}
-
-function closeMenu(){
-document.getElementById("mobileMenu").classList.remove("show");
 }
 
 </script>
