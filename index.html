@@ -64,44 +64,22 @@ color:white;
 text-decoration:none;
 font-weight:500;
 cursor:pointer;
-transition:0.3s;
 }
 
 .menu a:hover{
 color:#FFC72C;
 }
 
-/* ===== MOBILE ===== */
-
-.hamburger{
-display:none;
-font-size:24px;
-cursor:pointer;
-}
-
-.mobile-menu{
-display:none;
-flex-direction:column;
-background:#07182a;
-padding:20px;
-gap:15px;
-}
-
-.mobile-menu a{
-cursor:pointer;
-}
-
 /* ===== HERO ===== */
 
 .hero{
-padding:100px 20px;
+padding:80px 20px;
 text-align:center;
 background:
-linear-gradient(rgba(11,34,57,0.92),rgba(11,34,57,0.97)),
+linear-gradient(rgba(11,34,57,0.9),rgba(11,34,57,0.95)),
 url("https://lh3.googleusercontent.com/d/1aXQ0njh5TUbQMG_rPeyEUuTnJwuJUVhR");
-background-size:110%;
+background-size:cover;
 background-position:center;
-animation:heroMove 40s ease-in-out infinite alternate;
 }
 
 .hero h1{
@@ -111,39 +89,26 @@ margin-bottom:10px;
 
 .hero p{
 font-size:20px;
-opacity:0.9;
 }
 
 .cta{
 display:inline-block;
-margin-top:30px;
+margin-top:25px;
 background:#FFC72C;
 color:black;
 padding:16px 34px;
 border-radius:40px;
 font-weight:bold;
 cursor:pointer;
-transition:0.3s;
-}
-
-.cta:hover{
-transform:scale(1.05);
 }
 
 /* ===== CARDS ===== */
 
 .cards{
-margin:56px auto;
+margin:50px auto;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:30px;
-transition:all 0.45s ease;
-}
-
-.cards.hide{
-opacity:0;
-transform:translateY(40px);
-pointer-events:none;
 }
 
 .card{
@@ -167,20 +132,23 @@ color:#FFC72C;
 margin-bottom:10px;
 }
 
-.card::after{
-content:"→";
-position:absolute;
-right:20px;
-bottom:20px;
+/* ===== PAGE TRANSITION ===== */
+
+.home-content{
+transition:opacity .4s ease, transform .4s ease;
 }
 
-/* ===== SECTIONS ===== */
+.home-hidden{
+opacity:0;
+transform:translateY(-20px);
+pointer-events:none;
+}
 
 .section{
 display:none;
 opacity:0;
-transform:translateY(30px);
-transition:all 0.45s ease;
+transform:translateY(40px);
+transition:opacity .5s ease, transform .5s ease;
 }
 
 .section.active{
@@ -189,168 +157,62 @@ opacity:1;
 transform:translateY(0);
 }
 
-.section-box{
-max-width:1000px;
-margin:auto;
-background:#0a1f33;
-padding:40px;
-border-radius:12px;
-}
+/* ===== BACK BUTTON ===== */
 
 .back{
-margin:30px auto;
 display:inline-block;
+margin:20px 0 30px 0;
 background:#FFC72C;
 color:black;
-padding:12px 28px;
+padding:10px 22px;
 border-radius:30px;
-cursor:pointer;
 font-weight:bold;
-transition:0.25s;
+cursor:pointer;
+opacity:0;
+transform:translateY(-10px);
+transition:opacity .4s ease, transform .4s ease;
 }
 
-.back:hover{
-transform:scale(1.05);
+.section.active .back{
+opacity:1;
+transform:translateY(0);
 }
 
-/* ===== TRAILER PAGE ===== */
+/* ===== INFO BOXES ===== */
 
-.trailer-section{
-padding:80px 20px;
-background:
-linear-gradient(rgba(11,34,57,0.9),rgba(11,34,57,0.95)),
-url("https://lh3.googleusercontent.com/d/1aXQ0njh5TUbQMG_rPeyEUuTnJwuJUVhR");
-background-size:cover;
-background-position:center;
-border-radius:12px;
-}
-
-.trailer-container{
-max-width:1100px;
-margin:auto;
-text-align:center;
-}
-
-.trailer-title{
-font-size:42px;
-font-weight:700;
-margin-bottom:10px;
-}
-
-.trailer-sub{
-font-size:18px;
-opacity:0.9;
-margin-bottom:50px;
-}
-
-.info-grid{
+.grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
 gap:30px;
-margin-bottom:60px;
+margin:40px 0;
 }
 
-.info-card{
+.box{
 background:rgba(255,255,255,0.08);
 padding:25px;
 border-radius:14px;
 border:1px solid rgba(255,255,255,0.15);
 }
 
-.info-card i{
-font-size:32px;
+.box i{
+font-size:30px;
 color:#FFC72C;
 margin-bottom:10px;
-}
-
-.calendar-box{
-background:rgba(0,0,0,0.4);
-padding:30px;
-border-radius:12px;
-margin-bottom:50px;
-}
-
-.form-box{
-background:rgba(0,0,0,0.4);
-padding:30px;
-border-radius:12px;
-}
-
-.calendar-frame{
-width:100%;
-height:650px;
-border:none;
-border-radius:10px;
-background:white;
-}
-
-.form-frame{
-width:100%;
-height:2100px;
-border:none;
-border-radius:10px;
 }
 
 /* ===== FOOTER ===== */
 
 .footer{
 margin-top:80px;
-padding:60px 20px;
-background:rgba(0,0,0,0.7);
+padding:50px;
 text-align:center;
+background:rgba(0,0,0,0.6);
 }
 
-.footer img{
-height:80px;
-margin-bottom:20px;
-}
-
-.footer-links{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:10px;
-max-width:700px;
-margin:20px auto;
-}
-
-.footer-links a{
+.footer a{
 color:#FFC72C;
 text-decoration:none;
-font-weight:bold;
-}
-
-.footer-copy{
-margin-top:20px;
-font-size:12px;
-opacity:0.6;
-}
-
-/* ===== HERO ANIMATION ===== */
-
-@keyframes heroMove{
-
-0%{background-position:center;}
-
-100%{background-position:center 30px;}
-
-}
-
-/* ===== RESPONSIVE ===== */
-
-@media(max-width:800px){
-
-.menu{
-display:none;
-}
-
-.hamburger{
-display:block;
-}
-
-.mobile-menu.show{
-display:flex;
-}
-
+margin:0 10px;
 }
 
 </style>
@@ -369,124 +231,177 @@ FMK20FOI
 
 <div class="menu">
 <a onclick="goHome()">Start</a>
-<a onclick="openPage('slap')">Släp</a>
-<a onclick="openPage('medlem')">Medlem</a>
-<a onclick="openPage('verktyg')">Verktyg</a>
-<a onclick="openPage('aktiviteter')">Aktiviteter</a>
-<a onclick="openPage('kontakt')">Kontakt</a>
-</div>
-
-<div class="hamburger" onclick="toggleMenu()">
-<i class="fa-solid fa-bars"></i>
+<a onclick="show('slap')">Släp</a>
+<a onclick="show('medlem')">Medlem</a>
+<a onclick="show('aktiviteter')">Aktiviteter</a>
+<a onclick="show('kontakt')">Kontakt</a>
 </div>
 
 </div>
 
 </header>
 
+
+<div id="homeContent" class="home-content">
+
 <div class="hero">
 
 <h1>Försvarets Motorklubb Avdelning 20 FOI</h1>
+
 <p>Säkerhet • Kunskap • Gemenskap</p>
 
-<div class="cta" onclick="openPage('medlem')">
+<div class="cta" onclick="show('medlem')">
 Bli medlem
 </div>
 
 </div>
 
+
 <div class="container">
 
 <div class="cards">
 
-<div class="card" onclick="openPage('slap')">
+<div class="card" onclick="show('slap')">
 <i class="fa-solid fa-truck"></i>
 <h3>Boka släpvagn</h3>
-<p>Boka föreningens släpvagn.</p>
 </div>
 
-<div class="card" onclick="openPage('verktyg')">
-<i class="fa-solid fa-screwdriver-wrench"></i>
-<h3>Verktyg</h3>
-<p>Föreningens verktyg.</p>
-</div>
-
-<div class="card" onclick="openPage('aktiviteter')">
-<i class="fa-solid fa-calendar-days"></i>
-<h3>Aktiviteter</h3>
-<p>Kommande aktiviteter.</p>
-</div>
-
-<div class="card" onclick="openPage('kontakt')">
+<div class="card" onclick="show('medlem')">
 <i class="fa-solid fa-users"></i>
+<h3>Bli medlem</h3>
+</div>
+
+<div class="card" onclick="show('aktiviteter')">
+<i class="fa-solid fa-calendar"></i>
+<h3>Aktiviteter</h3>
+</div>
+
+<div class="card" onclick="show('kontakt')">
+<i class="fa-solid fa-address-book"></i>
 <h3>Kontakt</h3>
-<p>Styrelse och kontakt.</p>
 </div>
 
 </div>
 
 </div>
 
-<!-- TRAILER PAGE -->
+</div>
 
-<div id="slap" class="section">
+
+<!-- SLÄP -->
+
+<div id="slap" class="section container">
 
 <div class="back" onclick="goHome()">← Tillbaka</div>
 
-<div class="trailer-section">
+<h1>Boka släpvagn</h1>
 
-<div class="trailer-container">
+<div class="grid">
 
-<div class="trailer-title">
-Boka släpvagn
-</div>
-
-<div class="trailer-sub">
-Här kan du se när släpvagnen är ledig och boka en tid.
-</div>
-
-<div class="info-grid">
-
-<div class="info-card">
+<div class="box">
 <i class="fa-solid fa-calendar"></i>
 <h3>Boka i kalendern</h3>
-<p>I kalendern ser du om släpet är bokat.</p>
+<p>Se när släpet är ledigt.</p>
 </div>
 
-<div class="info-card">
+<div class="box">
 <i class="fa-solid fa-id-card"></i>
 <h3>Endast medlemmar</h3>
-<p>Du kan bli medlem när du bokar.</p>
+<p>Endast medlemmar kan boka.</p>
 </div>
 
-<div class="info-card">
+<div class="box">
 <i class="fa-solid fa-clock"></i>
 <h3>Återlämning</h3>
-<p>Lämna tillbaka släpet i tid.</p>
+<p>Lämna tillbaka i tid.</p>
 </div>
 
 </div>
 
-<div class="calendar-box">
-
-<h2>Bokningskalender</h2>
-
-<iframe class="calendar-frame"
+<iframe width="100%" height="650"
 src="https://calendar.google.com/calendar/embed?src=p5lpi6hpqf0uec2b453u677gqk%40group.calendar.google.com&ctz=Europe%2FStockholm">
 </iframe>
 
-</div>
-
-<div class="form-box">
-
-<h2>Bokningsformulär</h2>
-
-<iframe class="form-frame"
+<iframe width="100%" height="2100"
 src="https://docs.google.com/forms/d/e/1FAIpQLSda7JK2HIs4I7xGOXNUKokfO52s2a-hvhh_NPztxkcFw5Sykw/viewform?embedded=true">
 </iframe>
 
+<div class="back" onclick="goHome()">← Tillbaka</div>
+
 </div>
 
+
+<!-- MEDLEM -->
+
+<div id="medlem" class="section container">
+
+<div class="back" onclick="goHome()">← Tillbaka</div>
+
+<h1>Bli medlem</h1>
+
+<div class="grid">
+
+<div class="box">
+<i class="fa-solid fa-users"></i>
+<h3>Medlemskap</h3>
+<p>Öppet för FOI anställda.</p>
+</div>
+
+<div class="box">
+<i class="fa-solid fa-calendar"></i>
+<h3>Aktiviteter</h3>
+<p>Delta i träffar.</p>
+</div>
+
+<div class="box">
+<i class="fa-solid fa-truck"></i>
+<h3>Släpvagn</h3>
+<p>Boka föreningens släp.</p>
+</div>
+
+</div>
+
+<h2>Plusgiro</h2>
+
+<p>557566-7</p>
+
+<iframe width="100%" height="1500"
+src="https://docs.google.com/forms/d/e/1FAIpQLSf9v1p6jspS8VKx_MCT0WEQDS9sAIwNUfMxOopJ2XSB_UVRyQ/viewform?embedded=true">
+</iframe>
+
+<div class="back" onclick="goHome()">← Tillbaka</div>
+
+</div>
+
+
+<!-- AKTIVITETER -->
+
+<div id="aktiviteter" class="section container">
+
+<div class="back" onclick="goHome()">← Tillbaka</div>
+
+<h1>Aktiviteter</h1>
+
+<div class="grid">
+
+<div class="box">
+<i class="fa-solid fa-users"></i>
+<h3>Träffar</h3>
+</div>
+
+<div class="box">
+<i class="fa-solid fa-wrench"></i>
+<h3>Workshop</h3>
+</div>
+
+<div class="box">
+<i class="fa-solid fa-road"></i>
+<h3>Körningar</h3>
+</div>
+
+<div class="box">
+<i class="fa-solid fa-calendar-days"></i>
+<h3>Evenemang</h3>
 </div>
 
 </div>
@@ -495,41 +410,98 @@ src="https://docs.google.com/forms/d/e/1FAIpQLSda7JK2HIs4I7xGOXNUKokfO52s2a-hvhh
 
 </div>
 
+
+<!-- KONTAKT -->
+
+<div id="kontakt" class="section container">
+
+<div class="back" onclick="goHome()">← Tillbaka</div>
+
+<h1>Styrelse & Kontakt</h1>
+
+<div class="grid">
+
+<div class="box">
+<h3>Ordförande</h3>
+<p>Leif KG Persson</p>
+</div>
+
+<div class="box">
+<h3>Sekreterare</h3>
+<p>Filip Brolin</p>
+</div>
+
+<div class="box">
+<h3>Kassör</h3>
+<p>Jan Carlsson</p>
+</div>
+
+</div>
+
+<p>
+FMK avd 20 FOI<br>
+164 40 Stockholm
+</p>
+
+<a href="https://drive.google.com/file/d/1sSMHrJM6rUjEXueVQUWjqMoXAlrD6iUY/view"
+target="_blank" style="color:#FFC72C;font-weight:bold;">
+Öppna stadgar
+</a>
+
+<div class="back" onclick="goHome()">← Tillbaka</div>
+
+</div>
+
+
+<footer class="footer">
+
+<a href="https://www.fmk.se/">FMK Sverige</a>
+
+</footer>
+
+
 <script>
 
-function openPage(id){
+function show(page){
 
-const cards=document.querySelector(".cards")
+const home=document.getElementById("homeContent")
+const sections=document.querySelectorAll(".section")
 
-cards.classList.add("hide")
+home.classList.add("home-hidden")
 
-document.querySelectorAll(".section").forEach(s=>{
+sections.forEach(s=>{
 s.classList.remove("active")
 })
 
+document.getElementById(page).style.display="block"
+
 setTimeout(()=>{
-document.getElementById(id).classList.add("active")
+document.getElementById(page).classList.add("active")
+},50)
+
 window.scrollTo({top:0,behavior:'smooth'})
-},200)
 
 }
 
 function goHome(){
 
-const cards=document.querySelector(".cards")
+const home=document.getElementById("homeContent")
+const sections=document.querySelectorAll(".section")
 
-cards.classList.remove("hide")
-
-document.querySelectorAll(".section").forEach(s=>{
+sections.forEach(s=>{
 s.classList.remove("active")
 })
 
+setTimeout(()=>{
+sections.forEach(s=>{
+s.style.display="none"
+})
+},400)
+
+home.classList.remove("home-hidden")
+
 window.scrollTo({top:0,behavior:'smooth'})
 
-}
-
-function toggleMenu(){
-document.getElementById("mobileMenu")?.classList.toggle("show")
 }
 
 </script>
