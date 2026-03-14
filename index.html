@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,21 +27,78 @@ margin:auto;
 padding:0 20px;
 }
 
-/* ===== TECH BAKGRUND ===== */
+/* ===== ANIMERAD BAKGRUND ===== */
 
-body::before{
-content:"";
+.bg-tech{
+position:fixed;
+top:0;
+left:0;
+width:120%;
+height:120%;
+
+background-image:url("https://lh3.googleusercontent.com/d/1aXQ0njh5TUbQMG_rPeyEUuTnJwuJUVhR");
+
+background-size:cover;
+background-position:center;
+
+opacity:0.22;
+
+animation:techDrift 70s linear infinite;
+
+z-index:-5;
+}
+
+.bg-logo{
+position:fixed;
+top:50%;
+left:50%;
+
+width:950px;
+height:950px;
+
+background-image:url("https://lh3.googleusercontent.com/d/1naPMDGac67RmHFN-jhNuGI8-LmYt-bB4");
+
+background-size:contain;
+background-repeat:no-repeat;
+background-position:center;
+
+transform:translate(-50%,-50%);
+
+opacity:0.12;
+
+animation:logoGlow 10s ease-in-out infinite;
+
+z-index:-4;
+}
+
+.bg-overlay{
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
-background-image:
-linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-background-size:40px 40px;
-pointer-events:none;
-z-index:-1;
+
+background:rgba(11,34,57,0.88);
+
+z-index:-3;
+}
+
+.bg-lines{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+background:
+linear-gradient(90deg, transparent 48%, rgba(255,199,44,0.08) 50%, transparent 52%),
+linear-gradient(0deg, transparent 48%, rgba(255,199,44,0.06) 50%, transparent 52%);
+
+background-size:120px 120px;
+
+animation:gridShift 35s linear infinite;
+
+z-index:-2;
 }
 
 /* ===== HEADER ===== */
@@ -80,16 +138,8 @@ gap:26px;
 .menu a{
 color:white;
 text-decoration:none;
-font-weight:500;
-opacity:0.9;
-transition:0.3s;
+cursor:pointer;
 }
-
-.menu a:hover{
-color:#FFC72C;
-}
-
-/* ===== HAMBURGER ===== */
 
 .hamburger{
 display:none;
@@ -105,26 +155,15 @@ padding:20px;
 gap:15px;
 }
 
-.mobile-menu a{
-color:white;
-text-decoration:none;
-font-size:18px;
-}
-
 /* ===== HERO ===== */
 
 .hero{
 padding:110px 20px;
 text-align:center;
-background:
-linear-gradient(rgba(11,34,57,0.9),rgba(11,34,57,0.96)),
-url("https://lh3.googleusercontent.com/d/1aXQ0njh5TUbQMG_rPeyEUuTnJwuJUVhR");
-background-size:cover;
-background-position:center;
 }
 
 .hero h1{
-font-size:48px;
+font-size:46px;
 margin-bottom:10px;
 }
 
@@ -142,12 +181,6 @@ padding:16px 36px;
 border-radius:40px;
 font-weight:bold;
 cursor:pointer;
-transition:0.3s;
-}
-
-.cta:hover{
-transform:scale(1.05);
-box-shadow:0 0 20px rgba(255,199,44,0.7);
 }
 
 /* ===== CARDS ===== */
@@ -167,8 +200,6 @@ border-radius:14px;
 border:1px solid rgba(255,255,255,0.15);
 cursor:pointer;
 transition:0.35s;
-position:relative;
-overflow:hidden;
 }
 
 .card:hover{
@@ -182,29 +213,15 @@ color:#FFC72C;
 margin-bottom:10px;
 }
 
-.card::after{
-content:"→";
-position:absolute;
-right:20px;
-bottom:20px;
-font-size:20px;
-opacity:0.8;
-}
-
 /* ===== SECTIONS ===== */
 
 .section{
 display:none;
 padding:80px 20px;
-opacity:0;
-transform:translateY(20px);
-transition:all 0.4s ease;
 }
 
 .section.active{
 display:block;
-opacity:1;
-transform:translateY(0);
 }
 
 .section-box{
@@ -213,11 +230,6 @@ margin:auto;
 background:rgba(0,0,0,0.45);
 padding:40px;
 border-radius:12px;
-box-shadow:0 10px 30px rgba(0,0,0,0.4);
-}
-
-.section-box h2{
-margin-top:0;
 }
 
 .back{
@@ -228,7 +240,6 @@ color:black;
 padding:12px 28px;
 border-radius:30px;
 cursor:pointer;
-font-weight:bold;
 }
 
 /* ===== FOOTER ===== */
@@ -245,28 +256,29 @@ height:85px;
 margin-bottom:20px;
 }
 
-.footer-links{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:12px;
-max-width:700px;
-margin:20px auto;
+/* ===== ANIMATIONER ===== */
+
+@keyframes techDrift{
+
+0%{transform:translate(0,0) scale(1);}
+50%{transform:translate(-3%,-2%) scale(1.03);}
+100%{transform:translate(0,0) scale(1);}
+
 }
 
-.footer-links a{
-color:#FFC72C;
-text-decoration:none;
-font-weight:bold;
+@keyframes logoGlow{
+
+0%{transform:translate(-50%,-50%) scale(1);opacity:0.10;}
+50%{transform:translate(-50%,-50%) scale(1.06);opacity:0.18;}
+100%{transform:translate(-50%,-50%) scale(1);opacity:0.10;}
+
 }
 
-.footer-links a:hover{
-text-shadow:0 0 10px rgba(255,199,44,0.8);
-}
+@keyframes gridShift{
 
-.footer-copy{
-margin-top:20px;
-font-size:12px;
-opacity:0.6;
+0%{background-position:0 0;}
+100%{background-position:120px 120px;}
+
 }
 
 /* ===== RESPONSIVE ===== */
@@ -285,10 +297,6 @@ display:block;
 display:flex;
 }
 
-.hero h1{
-font-size:34px;
-}
-
 }
 
 </style>
@@ -296,12 +304,16 @@ font-size:34px;
 
 <body>
 
+<div class="bg-tech"></div>
+<div class="bg-logo"></div>
+<div class="bg-overlay"></div>
+<div class="bg-lines"></div>
+
 <header class="header">
 
 <div class="nav container">
 
 <div class="logo">
-<img src="https://lh3.googleusercontent.com/d/1CYuV6WLFcPUYGn_iG64HRh2gwwAiS2EL">
 FMK20FOI
 </div>
 
@@ -330,10 +342,10 @@ FMK20FOI
 
 </header>
 
-
 <div class="hero">
 
 <h1>Försvarets Motorklubb Avdelning 20 FOI</h1>
+
 <p>Säkerhet • Kunskap • Gemenskap</p>
 
 <div class="cta" onclick="show('medlem')">
@@ -342,7 +354,6 @@ Bli medlem
 
 </div>
 
-
 <div class="container">
 
 <div class="cards">
@@ -350,143 +361,26 @@ Bli medlem
 <div class="card" onclick="show('slap')">
 <i class="fa-solid fa-truck"></i>
 <h3>Boka släpvagn</h3>
-<p>Boka föreningens släp.</p>
 </div>
 
 <div class="card" onclick="show('verktyg')">
 <i class="fa-solid fa-screwdriver-wrench"></i>
 <h3>Verktyg</h3>
-<p>Föreningens verktyg.</p>
 </div>
 
 <div class="card" onclick="show('aktiviteter')">
 <i class="fa-solid fa-calendar-days"></i>
 <h3>Aktiviteter</h3>
-<p>Kommande träffar.</p>
 </div>
 
 <div class="card" onclick="show('kontakt')">
 <i class="fa-solid fa-users"></i>
 <h3>Kontakt</h3>
-<p>Styrelse och arkiv.</p>
 </div>
 
 </div>
 
 </div>
-
-
-<div id="slap" class="section">
-<div class="section-box">
-
-<h2>Boka släpvagn</h2>
-
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSda7JK2HIs4I7xGOXNUKokfO52s2a-hvhh_NPztxkcFw5Sykw/viewform?embedded=true"
-width="100%" height="800"></iframe>
-
-<div class="back" onclick="home()">Tillbaka</div>
-
-</div>
-</div>
-
-
-<div id="medlem" class="section">
-<div class="section-box">
-
-<h2>Bli medlem</h2>
-
-<iframe src="https://forms.gle/rMuXHA5SeB58ZLVs7"
-width="100%" height="800"></iframe>
-
-<div class="back" onclick="home()">Tillbaka</div>
-
-</div>
-</div>
-
-
-<div id="verktyg" class="section">
-<div class="section-box">
-
-<h2>Verktyg</h2>
-
-<p>Föreningen har tillgång till ett stort antal verktyg.</p>
-
-<ul>
-<li>Kalibrering av SU-förgasare</li>
-<li>Mätning av avgasvärden</li>
-<li>Hylsnyckelsats i tum</li>
-<li>Svets</li>
-</ul>
-
-<p>Inventering pågår innan utlåning öppnas.</p>
-
-<div class="back" onclick="home()">Tillbaka</div>
-
-</div>
-</div>
-
-
-<div id="aktiviteter" class="section">
-<div class="section-box">
-
-<h2>Aktiviteter</h2>
-
-<p>Kommande aktiviteter publiceras här.</p>
-
-<div class="back" onclick="home()">Tillbaka</div>
-
-</div>
-</div>
-
-
-<div id="kontakt" class="section">
-<div class="section-box">
-
-<h2>Styrelse</h2>
-
-<p><b>Ordförande</b> Leif KG Persson</p>
-<p>leifkgpersson@hotmail.com</p>
-
-<p><b>Sekreterare</b> Filip Brolin</p>
-<p>filip.brolin@foi.se</p>
-
-<p><b>Kassör</b> Jan Carlsson</p>
-
-<h3>Postadress</h3>
-
-<p>
-FMK avd 20 FOI<br>
-Att: Filip Brolin<br>
-16440 Stockholm
-</p>
-
-<div class="back" onclick="home()">Tillbaka</div>
-
-</div>
-</div>
-
-
-<div class="footer">
-
-<img src="https://lh3.googleusercontent.com/d/1CYuV6WLFcPUYGn_iG64HRh2gwwAiS2EL">
-
-<div class="footer-links">
-
-<a href="https://www.fmk.se/">FMK Sverige</a>
-<a href="https://www.fmklivgardet.se/">FMK Livgardet</a>
-<a href="https://www.fmk.se/fmv/">FMK FMV</a>
-<a href="https://www.fmkhalland.se/">FMK Halland</a>
-<a href="https://www.fmk.se/sodermanland/">FMK Södermanland</a>
-<a href="https://www.fmk.se/uddevalla/">FMK Uddevalla</a>
-
-</div>
-
-<div class="footer-copy">
-© 2025 FMK Avdelning 20 FOI
-</div>
-
-</div>
-
 
 <script>
 
@@ -496,9 +390,7 @@ document.querySelectorAll(".section").forEach(s=>{
 s.classList.remove("active")
 })
 
-document.getElementById(page).classList.add("active")
-
-document.getElementById("mobileMenu").classList.remove("show")
+document.getElementById(page)?.classList.add("active")
 
 window.scrollTo({top:0,behavior:'smooth'})
 }
