@@ -317,20 +317,57 @@ background: white;
         </div>
     </div>
 
-    <div id="slap" class="section">
-        <div class="back" onclick="goHome()">← Tillbaka</div>
-        <h1>Boka släpvagn</h1>
-        <div class="grid">
-            <div class="box"><i class="fa-solid fa-calendar"></i><h3>Boka i kalendern</h3><p>I kalendern ser du om något av släpen är bokade.</p></div>
-            <div class="box"><i class="fa-solid fa-id-card"></i><h3>Endast medlemmar</h3><p>Du kan bli medlem i samband med att du bokar.</p></div>
-            <div class="box"><i class="fa-solid fa-clock"></i><h3>Återlämning</h3><p>Se till att släpet återlämnas i tid.</p></div>
+<div id="slap" class="section container">
+    <div class="back" onclick="goHome()">← Tillbaka</div>
+    <h1>Boka släpvagn</h1>
+
+    <div class="grid">
+        <div class="box">
+            <i class="fa-solid fa-calendar"></i>
+            <h3>Boka i kalendern</h3>
+            <p>Se lediga tider och boka i formuläret nedan.</p>
         </div>
-        <h2>Bokningskalender</h2>
-        <iframe height="650" src="https://calendar.google.com/calendar/embed?src=p5lpi6hpqf0uec2b453u677gqk%40group.calendar.google.com&ctz=Europe%2FStockholm"></iframe>
-        <h2>Bokningsformulär</h2>
-        <iframe height="2100" src="https://docs.google.com/forms/d/e/1FAIpQLSda7JK2HIs4I7xGOXNUKokfO52s2a-hvhh_NPztxkcFw5Sykw/viewform?embedded=true"></iframe>
-        <div class="back" onclick="goHome()">← Tillbaka</div>
+        <div class="box">
+            <i class="fa-solid fa-money-bill"></i>
+            <h3>Hyra</h3>
+            <p>Endast 50 kr/dygn eller 200 kr/vecka.</p>
+        </div>
     </div>
+
+    <div class="info-box">
+        <h2>Våra Släpvagnar</h2>
+        <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div class="box" style="background:rgba(255,255,255,0.05)">
+                <h3 style="color:#FFC72C;">AMR748</h3>
+                <p><strong>Typ:</strong> Flak Godslåda<br>
+                <strong>Mått:</strong> 4100x1880 mm<br>
+                <strong>Vikt:</strong> 260kg (Total: 750kg)<br>
+                <strong>Last:</strong> 490 kg</p>
+            </div>
+            <div class="box" style="background:rgba(255,255,255,0.05)">
+                <h3 style="color:#FFC72C;">RMZ385</h3>
+                <p><strong>Typ:</strong> Flak Godslåda<br>
+                <strong>Mått:</strong> 5330x2320 mm<br>
+                <strong>Vikt:</strong> 400kg (Total: 1500kg)<br>
+                <strong>Last:</strong> 1100 kg</p>
+            </div>
+        </div>
+    </div>
+
+    <h2>Bokningskalender</h2>
+    <div style="overflow:hidden; border-radius:10px; background:white;">
+        <iframe height="400" style="width:100%; border:none; display:block;"
+        src="https://calendar.google.com/calendar/embed?src=p5lpi6hpqf0uec2b453u677gqk%40group.calendar.google.com&ctz=Europe%2FStockholm">
+        </iframe>
+    </div>
+
+    <h2>Bokningsformulär</h2>
+    <iframe height="1200" style="width:100%; border:none;"
+    src="https://docs.google.com/forms/d/e/1FAIpQLSda7JK2HIs4I7xGOXNUKokfO52s2a-hvhh_NPztxkcFw5Sykw/viewform?embedded=true">
+    </iframe>
+
+    <div class="back" onclick="goHome()">← Tillbaka</div>
+</div>
 
     <div id="medlem" class="section">
         <div class="back" onclick="goHome()">← Tillbaka</div>
