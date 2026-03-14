@@ -10,6 +10,8 @@
 
 <style>
 
+
+
 /* ===== BAS ===== */
 
 body{
@@ -99,10 +101,10 @@ text-align:center;
 background:
 linear-gradient(rgba(11,34,57,0.92),rgba(11,34,57,0.97)),
 url("https://lh3.googleusercontent.com/d/1aXQ0njh5TUbQMG_rPeyEUuTnJwuJUVhR");
-background-size:cover;
+background-size:110%;
 background-position:center;
+animation:heroMove 40s ease-in-out infinite alternate;
 }
-
 .hero h1{
 font-size:46px;
 margin-bottom:10px;
@@ -132,7 +134,7 @@ transform:scale(1.05);
 /* ===== CARDS ===== */
 
 .cards{
-margin:70px auto;
+margin:50px auto;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:30px;
@@ -260,6 +262,149 @@ display:flex;
 
 }
 
+/* ===== TRAILER PAGE ===== */
+
+.trailer-section{
+font-family:'Segoe UI',sans-serif;
+color:white;
+padding:80px 20px;
+background:
+linear-gradient(rgba(11,34,57,0.9),rgba(11,34,57,0.95)),
+url("https://lh3.googleusercontent.com/d/1aXQ0njh5TUbQMG_rPeyEUuTnJwuJUVhR");
+background-size:cover;
+background-position:center;
+border-radius:12px;
+}
+
+.trailer-container{
+max-width:1100px;
+margin:auto;
+text-align:center;
+}
+
+.trailer-title{
+font-size:42px;
+font-weight:700;
+margin-bottom:10px;
+}
+
+.trailer-sub{
+font-size:18px;
+opacity:0.9;
+margin-bottom:50px;
+}
+
+.info-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:30px;
+margin-bottom:60px;
+}
+
+.info-card{
+background:rgba(255,255,255,0.08);
+padding:25px;
+border-radius:14px;
+border:1px solid rgba(255,255,255,0.15);
+transition:0.3s;
+}
+
+.info-card:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+.info-card i{
+font-size:32px;
+color:#FFC72C;
+margin-bottom:10px;
+}
+
+.calendar-box{
+background:rgba(0,0,0,0.4);
+padding:30px;
+border-radius:12px;
+margin-bottom:50px;
+}
+
+.form-box{
+background:rgba(0,0,0,0.4);
+padding:30px;
+border-radius:12px;
+}
+
+.calendar-frame{
+width:100%;
+height:650px;
+border:none;
+border-radius:10px;
+background:white;
+}
+
+.form-frame{
+width:100%;
+height:2100px;
+border:none;
+border-radius:10px;
+background:transparent;
+}
+
+/* ===== PAGE TRANSITIONS ===== */
+
+.cards{
+transition:all 0.45s ease;
+}
+
+.cards.hide{
+opacity:0;
+transform:translateY(40px);
+pointer-events:none;
+}
+
+.section{
+display:none;
+opacity:0;
+transform:translateY(30px);
+transition:all 0.45s ease;
+}
+
+.section.active{
+display:block;
+opacity:1;
+transform:translateY(0);
+}
+
+/* snyggare tillbaka-knapp */
+
+.back{
+margin:30px auto;
+display:inline-block;
+background:#FFC72C;
+color:black;
+padding:12px 28px;
+border-radius:30px;
+cursor:pointer;
+font-weight:bold;
+transition:0.25s;
+}
+
+.back:hover{
+transform:scale(1.05);
+box-shadow:0 8px 20px rgba(0,0,0,0.35);
+}
+
+@keyframes heroMove{
+
+0%{
+background-position:center;
+}
+
+100%{
+background-position:center 30px;
+}
+
+}
+  
 </style>
 </head>
 
@@ -349,6 +494,72 @@ Bli medlem
 <!-- SECTIONS -->
 
 <div id="slap" class="section">
+
+<div class="back" onclick="goHome()">← Tillbaka</div>
+
+<div class="trailer-section">
+
+<div class="trailer-container">
+
+<div class="trailer-title">
+Boka släpvagn
+</div>
+
+<div class="trailer-sub">
+Här kan du se när släpvagnen är ledig och boka en tid.
+</div>
+
+<div class="info-grid">
+
+<div class="info-card">
+<i class="fa-solid fa-calendar"></i>
+<h3>Boka i kalendern</h3>
+<p>I kalendern ser du om något av släpen är bokade.</p>
+</div>
+
+<div class="info-card">
+<i class="fa-solid fa-id-card"></i>
+<h3>Endast medlemmar</h3>
+<p>Du kan bli medlem i samband med att du bokar släpet.</p>
+</div>
+
+<div class="info-card">
+<i class="fa-solid fa-clock"></i>
+<h3>Återlämning</h3>
+<p>Se till att släpvagnen återlämnas i tid så att nästa medlem kan använda den.</p>
+</div>
+
+</div>
+
+<div class="calendar-box">
+
+<h2>Bokningskalender</h2>
+
+<iframe class="calendar-frame"
+src="https://calendar.google.com/calendar/embed?src=p5lpi6hpqf0uec2b453u677gqk%40group.calendar.google.com&ctz=Europe%2FStockholm">
+</iframe>
+
+</div>
+
+<div class="form-box">
+
+<h2>Bokningsformulär</h2>
+
+<p>Fyll i formuläret nedan för att boka släpvagnen.</p>
+
+<iframe class="form-frame"
+src="https://docs.google.com/forms/d/e/1FAIpQLSda7JK2HIs4I7xGOXNUKokfO52s2a-hvhh_NPztxkcFw5Sykw/viewform?embedded=true">
+</iframe>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="back" onclick="goHome()">← Tillbaka</div>
+
+</div>
 <div class="section-box">
 
 <h2>Boka släpvagn</h2>
@@ -458,17 +669,26 @@ Att: Filip Brolin<br>
 
 function openPage(id){
 
+const cards = document.querySelector(".cards")
+
+cards.classList.add("hide")
+
 document.querySelectorAll(".section").forEach(s=>{
 s.classList.remove("active")
 })
 
+setTimeout(()=>{
 document.getElementById(id).classList.add("active")
-
 window.scrollTo({top:0,behavior:'smooth'})
+},200)
 
 }
 
 function goHome(){
+
+const cards = document.querySelector(".cards")
+
+cards.classList.remove("hide")
 
 document.querySelectorAll(".section").forEach(s=>{
 s.classList.remove("active")
