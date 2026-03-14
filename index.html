@@ -1,26 +1,43 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>FMK Avdelning 20 FOI</title>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
-.hero-section{
+body{
+margin:0;
+background:#0B2239;
 font-family:'Segoe UI',sans-serif;
 color:white;
-padding:110px 20px;
+display:flex;
+justify-content:center;
+}
+
+.page{
+width:100%;
+max-width:1200px;
+}
+
+.hero-section{
+padding:90px 20px;
 background:
 linear-gradient(rgba(11,34,57,0.92),rgba(11,34,57,0.97)),
 url("https://lh3.googleusercontent.com/d/1aXQ0njh5TUbQMG_rPeyEUuTnJwuJUVhR");
 background-size:cover;
 background-position:center;
+border-radius:12px;
 }
 
 .hero-container{
-max-width:1200px;
-margin:auto;
 text-align:center;
 }
 
 .hero-title{
-font-size:48px;
+font-size:44px;
 font-weight:700;
 margin-bottom:10px;
 }
@@ -32,42 +49,48 @@ opacity:0.9;
 
 .cta-btn{
 display:inline-block;
-margin-top:35px;
+margin-top:30px;
 background:#ffc72c;
 color:#000;
-padding:16px 34px;
+padding:15px 32px;
 border-radius:40px;
 font-weight:bold;
 text-decoration:none;
 }
 
 .cards{
-margin-top:80px;
+margin-top:60px;
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-gap:30px;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
 }
 
 .card{
+display:block;
 background:rgba(255,255,255,0.08);
 backdrop-filter:blur(10px);
 padding:30px;
 border-radius:14px;
 border:1px solid rgba(255,255,255,0.15);
+text-decoration:none;
+color:white;
 transition:0.3s;
 position:relative;
-text-align:left;
 }
 
 .card:hover{
-transform:translateY(-8px);
+transform:translateY(-6px);
 box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
 
 .card i{
 font-size:32px;
-margin-bottom:12px;
+margin-bottom:10px;
 color:#ffc72c;
+}
+
+.card h3{
+margin-bottom:8px;
 }
 
 .card::after{
@@ -79,25 +102,17 @@ font-size:20px;
 opacity:0.8;
 }
 
-.card-link{
-position:absolute;
-top:0;
-left:0;
-right:0;
-bottom:0;
-z-index:10;
-}
-
 .book-section{
-margin-top:90px;
-padding:40px;
+margin-top:70px;
+padding:35px;
 border-radius:12px;
 background:rgba(0,0,0,0.45);
+text-align:center;
 }
 
 .book-btn{
 display:inline-block;
-margin-top:20px;
+margin-top:18px;
 background:#ffc72c;
 color:black;
 padding:14px 28px;
@@ -106,81 +121,64 @@ font-weight:bold;
 text-decoration:none;
 }
 
-
 /* FOOTER */
 
 .fmk-footer{
-margin-top:100px;
-padding:70px 20px;
+margin-top:80px;
+padding:60px 20px;
 background:rgba(0,0,0,0.65);
-color:white;
 border-radius:12px;
-}
-
-.footer-container{
-max-width:1100px;
-margin:auto;
 text-align:center;
 }
 
 .footer-logo{
-height:90px;
-margin-bottom:25px;
+height:80px;
+margin-bottom:20px;
 }
 
 .footer-title{
-font-size:22px;
-margin-bottom:30px;
-letter-spacing:1px;
+font-size:20px;
+margin-bottom:20px;
 }
 
 .footer-links{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-gap:15px;
-max-width:800px;
-margin:0 auto 30px auto;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:10px;
+max-width:700px;
+margin:0 auto 25px auto;
 }
 
 .footer-links a{
 color:#ffc72c;
 text-decoration:none;
 font-weight:bold;
-padding:8px;
+padding:6px;
 border-radius:6px;
-transition:0.3s;
 }
 
 .footer-links a:hover{
 color:white;
 background:rgba(255,199,44,0.15);
-box-shadow:0 0 10px rgba(255,199,44,0.4);
-}
-
-.footer-social{
-margin-bottom:25px;
 }
 
 .footer-social a{
 color:#ffc72c;
-font-size:28px;
-transition:0.3s;
-}
-
-.footer-social a:hover{
-color:white;
-text-shadow:0 0 10px rgba(255,255,255,0.7);
+font-size:26px;
 }
 
 .footer-copy{
-font-size:13px;
-opacity:0.65;
-margin-top:20px;
+font-size:12px;
+opacity:0.6;
+margin-top:15px;
 }
 
 </style>
+</head>
 
+<body>
 
+<div class="page">
 
 <div class="hero-section">
 
@@ -203,41 +201,37 @@ Bli medlem
 
 <div class="cards">
 
-<div class="card">
-<a class="card-link"
+<a class="card"
 href="https://sites.google.com/view/fmkavd20foi/startsida/boka-sl%C3%A4pvagn"
-target="_top"></a>
+target="_top">
 <i class="fa-solid fa-truck"></i>
 <h3>Släpvagn</h3>
 <p>Boka föreningens släpvagn enkelt via kalender.</p>
-</div>
+</a>
 
-<div class="card">
-<a class="card-link"
+<a class="card"
 href="https://sites.google.com/view/fmkavd20foi/startsida/verktyg"
-target="_top"></a>
+target="_top">
 <i class="fa-solid fa-screwdriver-wrench"></i>
 <h3>Verktyg</h3>
 <p>Tillgång till verktyg och utrustning.</p>
-</div>
+</a>
 
-<div class="card">
-<a class="card-link"
+<a class="card"
 href="https://sites.google.com/view/fmkavd20foi/startsida/aktiviteter"
-target="_top"></a>
+target="_top">
 <i class="fa-solid fa-calendar-days"></i>
 <h3>Aktiviteter</h3>
 <p>Se kommande aktiviteter och träffar.</p>
-</div>
+</a>
 
-<div class="card">
-<a class="card-link"
+<a class="card"
 href="https://sites.google.com/view/fmkavd20foi/startsida/styrelsekontaktarkiv"
-target="_top"></a>
+target="_top">
 <i class="fa-solid fa-file-lines"></i>
 <h3>Kontakt</h3>
 <p>Stadgar, kontaktuppgifter och arkiv.</p>
-</div>
+</a>
 
 </div>
 
@@ -246,9 +240,7 @@ target="_top"></a>
 
 <h2>Boka släpvagn</h2>
 
-<p>
-Se tillgängliga tider och boka släpvagnen direkt.
-</p>
+<p>Se tillgängliga tider och boka släpvagnen direkt.</p>
 
 <a class="book-btn"
 href="https://sites.google.com/view/fmkavd20foi/startsida/boka-sl%C3%A4pvagn"
@@ -258,45 +250,37 @@ target="_top">
 
 </div>
 
+</div>
+</div>
+
 
 <div class="fmk-footer">
 
-<div class="footer-container">
-
 <img class="footer-logo"
 src="https://lh3.googleusercontent.com/d/1CYuV6WLFcPUYGn_iG64HRh2gwwAiS2EL">
-
 
 <div class="footer-title">
 Del av FMK-nätverket
 </div>
 
-
 <div class="footer-links">
 
-<a href="https://www.fmk.se/" target="_blank">FMK Sverige</a>
-
-<a href="https://www.fmklivgardet.se/" target="_blank">FMK Livgardet</a>
-
-<a href="https://www.fmk.se/fmv/" target="_blank">FMK FMV</a>
-
-<a href="https://www.fmkhalland.se/" target="_blank">FMK Halland</a>
-
-<a href="https://www.fmk.se/sodermanland/" target="_blank">FMK Södermanland</a>
-
-<a href="https://www.fmk.se/uddevalla/" target="_blank">FMK Uddevalla</a>
+<a href="https://www.fmk.se/" target="_top">FMK Sverige</a>
+<a href="https://www.fmklivgardet.se/" target="_top">FMK Livgardet</a>
+<a href="https://www.fmk.se/fmv/" target="_top">FMK FMV</a>
+<a href="https://www.fmkhalland.se/" target="_top">FMK Halland</a>
+<a href="https://www.fmk.se/sodermanland/" target="_top">FMK Södermanland</a>
+<a href="https://www.fmk.se/uddevalla/" target="_top">FMK Uddevalla</a>
 
 </div>
 
-
 <div class="footer-social">
 
-<a href="https://www.facebook.com/groups/891175008263411" target="_blank">
+<a href="https://www.facebook.com/groups/891175008263411" target="_top">
 <i class="fa-brands fa-facebook"></i>
 </a>
 
 </div>
-
 
 <div class="footer-copy">
 © 2025 FMK Avdelning 20 FOI • Försvarets Motorklubb
@@ -306,6 +290,5 @@ Del av FMK-nätverket
 
 </div>
 
-
-</div>
-</div>
+</body>
+</html>
